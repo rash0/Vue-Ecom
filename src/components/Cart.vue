@@ -2,8 +2,8 @@
   <div>
     <div :class="cClass">
       <div class="cart-menu">
-        <h1 class="text-center">Cart</h1>
-        <hr>
+        <h2 class="text-left mb-4 mt-3">My Cart</h2>
+        <hr v-if="this.cartContent.length === 0">
 
         <transition name="fade">
           <div v-if="this.cartContent.length === 0" class="text-center font-italic">
@@ -138,8 +138,8 @@ export default {
   -webkit-overflow-scrolling: touch;
   transition-property: transform;
   transition-duration: 0.4s;
-
 }
+
 .cart-menu{
   color: #eee;
   margin-left: 10px;

@@ -1,5 +1,5 @@
 {
-  "name": "ecom-vue",
+  "name": "Vue-storeFront",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "nodemailer": "^4.7.0",
-    "request-ip": "^2.1.3",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vue-slider-component": "^2.8.0",
