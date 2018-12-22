@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "request": "^2.88.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vue-slider-component": "^2.8.0",
