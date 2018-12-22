@@ -1,7 +1,7 @@
 # Vue Store-Front Templete
 
 > An E-commerce templete made with bootstrap4
-> and Vue/Vuex/Vue-router
+> and Vue/Vuex/Vue-router.
 
 
 <p align="center">
