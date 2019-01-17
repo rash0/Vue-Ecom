@@ -1,7 +1,7 @@
 <template>
   <div class="container grid">
     <div class="row justify-content-around">
-      <div class="row col-6 pb-4">
+      <div class="row col-6 pb-4 pr-1">
         <div class="dropdown">
           <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SORT BY
             <span style="color:#f2be00;">{{ sortButton }}</span>
@@ -69,24 +69,10 @@
             <h4 style="margin-left:9rem;margin-right:9rem">Sorry, we can't find a product with this features</h4>
           </div>
 
-          <transition-group name="fade" class="row" tag="div">
-            <div v-for="item in sLiceCards" :class="item.col6" :key="item.id">
-                <div class="card">
-                  <img class="card-img-top" :src="item.img" alt="Card image cap">
-                  <div class="overlay">
-                    <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item, item.id)">Add +</button>
-                    <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item, item.id)">Info</button></router-link>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">{{ item.title }}</h5>
-                    <p class="card-text">${{ item.price }}</p>
-                  </div>
-                </div>
-            </div>
-          </transition-group>
+            <Card :CardArray="slicedCards" />
 
           <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
-            <button type="button" @click="haClick" class="btn btn-outline-secondary btn-lg btn-block">More +</button>
+            <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">More +</button>
           </div>
         </div>
       </div>
@@ -96,11 +82,12 @@
 
 <script>
 import slider from './slider.vue'
+import Card from './Card.vue'
 
 export default {
   name:'Grid',
   components: {
-    slider
+    slider, Card
   },
   data() {
     return {
@@ -114,15 +101,15 @@ export default {
   },
   computed: {
     it(){
-      return this.$store.state.items
+    return this.$store.state.items
     },
-    sLiceCards(){
+    slicedCards(){
       return this.cards.slice(0, this.showCards)
     }
   },
   methods: {
-    haClick() {
-      return this.showCards += 8
+    incCardNumber() {
+      return this.showCards += 6
     },
     valueSlider(value) {
       var x = value[0];
@@ -144,12 +131,6 @@ export default {
     sortI(name){
       this.cards = this.it.filter((e) => e.type.match(name) || e.color.match(name))
     },
-    addtoCart(it, id) {
-     this.$store.commit('inCart', it, id)
-    },
-    sendInfo(it, id) {
-     this.$store.commit('addtoInfo', it, id)
-    },
     reSet() {
       return this.cards = this.it
     }
@@ -158,10 +139,6 @@ export default {
 </script>
 
 <style>
-.fade-move {
-  transition: transform 1s;
-}
-
 .container.grid {
   min-height: 60rem;
 }
@@ -172,61 +149,22 @@ export default {
 
 .btn-light {
   color: black !important;
-  background: inherit !important;
+  background: white;
   border-radius: 0 !important;
   border: 1px solid grey !important;
 }
+.dropdown-menu{
+  background-color: #eee;
+  color: #2c3539;
+}
 
-.btn-dark{
-  display:none;
-  position:absolute;
+.dropdown-menu > a:hover{
+  background-color: #dae0e5
+
 }
 
 .btn-outline-secondary {
   border-radius: 0 !important;
-}
-
-.card {
-  transition: 500ms;
-  position: relative;
-  overflow: hidden;
-}
-
-.card img {
-  z-index: 1;
-}
-
-.card button {
-  width: 140px;
-  margin-bottom: 10px;
-}
-
-.card:hover img {
-  filter: blur(4px);
-}
-
-.card:hover .overlay {
-  opacity: 0.8;
-
-}
-
-.card .overlay {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 70%;
-  background-color: #232b34;
-  opacity: 0;
-  z-index: 100;
-  transition: all 0.3s ease-in;
-}
-
-.card:hover, .card:active {
-  transform: scaleY(1.1) scaleX(1.06);
-  box-shadow: 0 14px 98px rgba(0, 0, 0, 0.25), 0 0px 60px rgba(0, 0, 0, 0.22);
 }
 
 /*search options*/

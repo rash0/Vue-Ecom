@@ -16,8 +16,8 @@ export default {
   data() {
     return {
       value: [
-        100,
-        550
+        36,
+        756
       ],
       options: {
       width: "auto",

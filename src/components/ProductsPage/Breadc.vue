@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .breadcrumb {
   background: inherit !important;
   color: #2c3539 !important;

@@ -11,7 +11,7 @@
       </div>
       <!--Logo-->
       <a class="navbar-brand py-0 pl-5">
-          <img src="@/assets/fi-logo.svg" width="30" height="30">
+          <img src="@/assets/fi-logo.svg" width="50" height="50">
       </a>
       <!--Header navigation-->
       <span class="navbar-item bc d-none d-xl-block d-lg-block py-0">
@@ -25,7 +25,7 @@
           <input type="search" class="search">
         </div>
         <div class="user">
-          <h6 style="cursor: pointer" data-toggle="modal" data-target="#userModal">Sign In</h6>
+          <h5 style="cursor: pointer" data-toggle="modal" data-target="#userModal">Sign In</h5>
         </div>
 
         <div class="bag" @click="openCart">
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import Cart from '@/components/Cart.vue'
+import Cart from '@/Components/Cart.vue'
 
 export default {
   name: 'Header',

@@ -2,8 +2,8 @@
   <div>
     <div :class="cClass">
       <div class="cart-menu">
-        <h2 class="text-left mb-4 mt-3">My Cart</h2>
-        <hr v-if="this.cartContent.length === 0">
+        <h1 class="text-center">Cart</h1>
+        <hr>
 
         <transition name="fade">
           <div v-if="this.cartContent.length === 0" class="text-center font-italic">
@@ -39,8 +39,6 @@
     </div>
 
     <div :class="modalClass" @click="cartON"></div>
-    <!--Cart Shadow Backdrop-->
-    <!-- <div class="modal" @click="cartON" ref="myModalRef" role="dialog" tabindex="-1" data-backdrop="static" data-keyboard="false"/> -->
   </div>
 </template>
 
@@ -59,20 +57,12 @@ export default {
     cartContent(){
       return this.$store.state.cartItems
     },
-    // modalShadow() {
-    //   if(this.cClass==='cart on'){
-    //    return $(this.$refs.myModalRef).modal('show')
-    //  }
-    //  if(this.cClass==='cart'){
-    //   return $(this.$refs.myModalRef).modal('hide')
-    // }},
     cartPrice() {
       return this.$store.getters.totalPrice
     }
   },
   methods: {
     cartON() {
-
       if(this.cClass === 'cart on'){
         this.cClass = 'cart'
         this.modalClass = 'modal off'
@@ -80,14 +70,9 @@ export default {
         this.cClass = 'cart on'
         this.modalClass = 'modal'
       }
-
     },
     removeThing(id){
       this.$store.commit('outCart',id)
-    // },
-    // modalShadow() {
-    //   (this.cClass === 'cart on') ?  :
-    // },
   }
 }
 }
@@ -158,7 +143,7 @@ border-color: white;
 
 .remove-btn{
   border-radius: 50%;
-  content: url('https://png.icons8.com/windows/30/ffffff/multiply.png')
+  content: url('../assets/multiply.png')
 }
 
 .remove-btn:hover {

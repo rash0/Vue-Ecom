@@ -1,13 +1,13 @@
 <template>
   <div>
     <Breadc />
-    <Grid />    
+    <Grid />
   </div>
 </template>
 
 <script>
-import Breadc from '../components/Breadc.vue'
-import Grid from '../components/Grid.vue'
+import Breadc from '@/Components/ProductsPage/Breadc.vue'
+import Grid from '@/Components/ProductsPage/Grid.vue'
 
 export default {
   components: {
