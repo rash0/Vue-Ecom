@@ -1,8 +1,10 @@
 language: node_js
 node_js:
   - "10"
-before_install:
-  - npm i -g npm@6.4.1 @vue/cli
+
+install:
+  - yarn
 
 script:
-  - npm serve
+  - npm lint
+  - npm build
