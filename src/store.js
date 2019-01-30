@@ -15,7 +15,6 @@ export default new Vuex.Store({
         img: require('@/assets/1.jpg'),
         title: 'sofa 243',
         price: 156,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'yellow',
         type: 'sofa'
       }, {
@@ -23,7 +22,6 @@ export default new Vuex.Store({
         img: require('@/assets/2.jpg'),
         title: 'lamp 54',
         price: 756,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'yellow',
         type: 'lamp'
       }, {
@@ -31,7 +29,6 @@ export default new Vuex.Store({
         img: require('@/assets/3.jpg'),
         title: 'fotal 34',
         price: 362,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'yellow',
         type: 'chair'
       }, {
@@ -39,7 +36,6 @@ export default new Vuex.Store({
         img: require('@/assets/4.jpg'),
         title: 'fotal324',
         price: 505,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'red',
         type: 'chair'
       }, {
@@ -47,7 +43,6 @@ export default new Vuex.Store({
         img: require('@/assets/5.jpg'),
         title: 'sofa-1',
         price: 243,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'white',
         type: 'sofa'
       }, {
@@ -55,7 +50,6 @@ export default new Vuex.Store({
         img: require('@/assets/6.jpg'),
         title: 'Fotal-2',
         price: 44,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'white',
         type: 'chair'
       }, {
@@ -63,7 +57,6 @@ export default new Vuex.Store({
         img: require('@/assets/7.jpg'),
         title: 'Fotal-34',
         price: 505,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'blue',
         type: 'chair'
       }, {
@@ -71,7 +64,6 @@ export default new Vuex.Store({
         img: require('@/assets/8.jpg'),
         title: 'foto-4364',
         price: 432,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'red',
         type: 'table'
       },
@@ -80,7 +72,6 @@ export default new Vuex.Store({
         img: require('@/assets/9.jpg'),
         title: 'foto-44',
         price: 390,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'white',
         type: 'table'
       },
@@ -89,7 +80,6 @@ export default new Vuex.Store({
         img: require('@/assets/10.jpg'),
         title: 'foto-34',
         price: 756,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'yellow',
         type: 'chair'
       },
@@ -98,7 +88,6 @@ export default new Vuex.Store({
         img: require('@/assets/11.jpg'),
         title: 'foto-23',
         price: 44,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'white',
         type: 'chair'
       },
@@ -107,7 +96,6 @@ export default new Vuex.Store({
         img: require('@/assets/12.jpg'),
         title: 'foto-4234',
         price: 156,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'red',
         type: 'lamp'
       },
@@ -116,7 +104,6 @@ export default new Vuex.Store({
         img: require('@/assets/13.jpg'),
         title: 'foto-4234',
         price: 756,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'blue',
         type: 'lamp'
       },
@@ -125,7 +112,6 @@ export default new Vuex.Store({
         img: require('@/assets/14.jpg'),
         title: 'foto-4234',
         price: 756,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'white',
         type: 'chair'
       },
@@ -134,7 +120,6 @@ export default new Vuex.Store({
         img: require('@/assets/table-1.jpg'),
         title: 'table-32',
         price: 756,
-        col6: 'col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3',
         color: 'white',
         type: 'table'
       }
