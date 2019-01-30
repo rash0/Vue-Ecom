@@ -3,8 +3,8 @@ node_js:
   - "10"
 
 install:
-  - npm
+  - npm install
 
 script:
-  - npm lint
-  - npm build
+  - npm run-script lint
+  - npm run-script build
