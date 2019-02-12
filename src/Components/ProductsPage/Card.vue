@@ -5,8 +5,8 @@
           <div class="card">
             <img class="card-img-top" :src="item.img" alt="Card image cap">
             <div class="overlay">
-              <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item, item.id)">Add +</button>
-              <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item, item.id)">Info</button></router-link>
+              <button type="button" class="btn btn-outline-secondary btn-lg" @click="addtoCart(item)">Add +</button>
+              <router-link to="/Info"><button type="button" class="btn btn-outline-secondary btn-lg" @click="sendInfo(item)">Info</button></router-link>
             </div>
             <div class="card-body">
               <h5 class="card-title">{{ item.title }}</h5>
@@ -24,11 +24,11 @@ export default {
   props: ['CardArray'],
   name: 'Card',
   methods: {
-    addtoCart(it, id) {
-     this.$store.commit('inCart', it, id)
+    addtoCart(it) {
+     this.$store.commit('inCart', it)
     },
-    sendInfo(it, id) {
-     this.$store.commit('addtoInfo', it, id)
+    sendInfo(it) {
+     this.$store.commit('addtoInfo', it)
     }
   }
 }
