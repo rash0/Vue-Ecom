@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import createPersistedState from 'vuex-persistedstate';
+// import createPersistedState from 'vuex-persistedstate';
 
-// REMOVE CLASS FROM items ARRAY
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -125,7 +124,7 @@ export default new Vuex.Store({
       }
     ]
   },
-  plugins: [createPersistedState()],
+  // plugins: [createPersistedState()],
   getters: {
     itemsNumber(state){  // Cart Component
       return state.cartItems.length
