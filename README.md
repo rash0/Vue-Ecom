@@ -20,7 +20,3 @@ npm run serve
 # FOR BUILD: 
 npm run build
 ```
-
-# Project Structure 
-
->coming soon!
