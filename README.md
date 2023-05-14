@@ -36,8 +36,8 @@ VueStoreFront is an easy, readily available, mobile-ready, up-to-date StoreFront
 
 VueStoreFront is build over a number of openSource projects:
 
-- [VueJs](https://vuejs.org/)
-- [VueRouter](https://router.vuejs.org/)
+- [Vue.Js](https://vuejs.org/)
+- [Nuxt.Js](https://nuxt.com/)
 - [Pinia](https://pinia.vuejs.org/)
 - [BootStrap](https://getbootstrap.com/)
 
@@ -50,7 +50,7 @@ VueStoreFront is build over a number of openSource projects:
 cd Vue-Ecom && npm install
 
 # for Development:
-npm run serve
+npm run dev
 
 # for Producation:
 npm run build
@@ -62,57 +62,44 @@ npm run build
 
 ```bash
 Vue-Ecom/
-├── Public/
-│   ├── favicon.ico
-│   └── index.html
-├── src/
-│   ├── assests/
-│   │   └── __Project Assests__
-│   ├── Components/
-│   │   ├── ContactPage/
-│   │   │   └── ContactForm.vue
-│   │   ├── InfoPage/
-│   │   │   ├── InfoBox.vue
-│   │   │   ├── InforBreadcrumb.vue
-│   │   │   └── InfoText.vue
-│   │   ├── HomePage/
-│   │   │   ├── AboutUs.vue
-│   │   │   └── HomeCarousel.vue
-│   │   ├── ProductsPage/
-│   │   │   ├── BreadCrumbs.vue
-│   │   │   ├── GridComponent.vue
-│   │   │   ├── ProductCard.vue
-│   │   │   └── SmallSlider.vue
-│   │   ├── MyCart.vue
-│   │   ├── NewsLetter.vue
-│   │   ├── PageFooter.vue
-│   │   └── PageHeader.vue
-│   ├── views/
-│   │   ├── ContactView.vue
-│   │   ├── InfoView.vue
-│   │   ├── HomeVue.vue
-│   │   └── ProductsView.vue
-│   ├── App.js
-│   ├── main.js
-│   ├── router.js
-│   └── store.js
-├── package.json
-└── README.md
+├── assets/
+│   ├── styles/
+│   └── __Project Assests__
+├── Components/
+│   ├── Details/
+│   ├── Header/
+│   ├── Home/
+│   ├── Products/
+│   ├── Cart.vue
+│   ├── ContactForm.vue
+│   ├── Footer.vue
+│   ├── Header.vue
+│   ├── NewsLetter.vue
+├── Composables/
+│   │   └── useAsset.ts
+├── Layouts/
+│   │   └── default.vue
+├── Pages/
+│   │   ├── Details/
+│   │   ├── Contact.vue
+│   │   ├── Index.vue
+│   │   └── Products.vue
+├── Plugins/
 ```
 
 <br />
 
-## Deve enviroment:
+## Dev enviroment:
 
 More information on what constitutes the enviroment:
 
-| Plugin       | README                                   |
-| ------------ | ---------------------------------------- |
-| Vite         | [https://vitejs.dev/guide/]              |
-| Prettier     | [https://prettier.io/docs/en/index.html] |
-| Eslint       | [https://eslint.org/docs/latest/]        |
-| CssNano      | [https://cssnano.co/docs/introduction/]  |
-| AutoPrefixer | [https://autoprefixer.github.io/]        |
+| Plugin        | README                                   |
+| ------------- | ---------------------------------------- |
+| Nuxt DevTools | [https://devtools.nuxtjs.org/]           |
+| Vite          | [https://vitejs.dev/guide/]              |
+| Prettier      | [https://prettier.io/docs/en/index.html] |
+| Eslint        | [https://eslint.org/docs/latest/]        |
+| AutoPrefixer  | [https://autoprefixer.github.io/]        |
 
 <br />
 
