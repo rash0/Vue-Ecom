@@ -6,10 +6,10 @@
           <div class="footer-widget">
             <div class="footer-title">Navigate</div>
             <ul class="list-unstyled">
-              <router-link to="/"><li>About Us</li></router-link>
-              <router-link to="/"><li>Blog</li></router-link>
-              <router-link to="/"><li>Contact Us</li></router-link>
-              <router-link to="/"><li>Sitemap</li></router-link>
+              <NuxtLink to="/"><li>About Us</li></NuxtLink>
+              <NuxtLink to="/"><li>Blog</li></NuxtLink>
+              <NuxtLink to="/"><li>Contact Us</li></NuxtLink>
+              <NuxtLink to="/"><li>Sitemap</li></NuxtLink>
             </ul>
           </div>
         </div>
@@ -18,10 +18,10 @@
           <div class="footer-widget">
             <div class="footer-title">Collection</div>
             <ul class="list-unstyled">
-              <router-link to="/products"><li>New arrivals</li></router-link>
-              <router-link to="/products"><li>Featured</li></router-link>
-              <router-link to="/products"><li>Catalog</li></router-link>
-              <router-link to="/products"><li>Brands</li></router-link>
+              <NuxtLink to="/products"><li>New arrivals</li></NuxtLink>
+              <NuxtLink to="/products"><li>Featured</li></NuxtLink>
+              <NuxtLink to="/products"><li>Catalog</li></NuxtLink>
+              <NuxtLink to="/products"><li>Brands</li></NuxtLink>
             </ul>
           </div>
         </div>
@@ -30,10 +30,10 @@
           <div class="footer-widget">
             <div class="footer-title">Catagories</div>
             <ul class="list-unstyled">
-              <router-link to="/products"><li>Tables</li></router-link>
-              <router-link to="/products"><li>Lamps</li></router-link>
-              <router-link to="/products"><li>Chairs</li></router-link>
-              <router-link to="/products"><li>Sofas</li></router-link>
+              <NuxtLink to="/products"><li>Tables</li></NuxtLink>
+              <NuxtLink to="/products"><li>Lamps</li></NuxtLink>
+              <NuxtLink to="/products"><li>Chairs</li></NuxtLink>
+              <NuxtLink to="/products"><li>Sofas</li></NuxtLink>
             </ul>
           </div>
         </div>
@@ -68,12 +68,6 @@
     </div>
   </footer>
 </template>
-
-<script>
-export default {
-  name: 'Footer'
-}
-</script>
 
 <style scoped>
 .footer_area {
