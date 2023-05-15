@@ -28,12 +28,12 @@
 
 <script>
 export default {
-  name: 'Newsletter',
-  methods: {
-    haSubmit() {
-      return alert('Thank you for subscribing')
-    }
-  }
+  // name: 'Newsletter',
+  // methods: {
+  //   haSubmit() {
+  //     return alert('Thank you for subscribing')
+  //   }
+  // }
 }
 </script>
 

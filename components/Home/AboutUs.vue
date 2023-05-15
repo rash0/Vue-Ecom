@@ -2,7 +2,7 @@
   <section class="about-us">
     <div class="row p-4">
       <div class="col-6">
-        <img class="float-lg-right" src="@/assets/new.jpg">
+        <img class="float-lg-right" src="~/assets/new.jpg">
       </div>
       <div class="col-12 col-sm-6">
         <h1>New minimalist<br>–components</h1>
@@ -25,16 +25,16 @@
           </h6>
       </div>
       <div class="col-6">
-        <img src="@/assets/33.jpg">
+        <img src="~/assets/33.jpg">
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {
-  name: 'AboutUs'
-}
+// export default {
+//   name: 'AboutUs'
+// }
 </script>
 
 <style scoped>

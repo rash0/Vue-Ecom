@@ -1,23 +1,22 @@
 <template>
   <div>
-    <nav class="row justify-content-start" v-for="it in information" :key="it.id" aria-label="breadcrumb">
+    <nav class="row justify-content-start" aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <router-link to="/">Home</router-link>
+          <nuxt-link to="/">Home</nuxt-link>
         </li>
-        <li class="breadcrumb-item"><router-link to="/products">Products</router-link></li>
-        <li class="breadcrumb-item">{{ it.type }}</li>
-        <li class="breadcrumb-item active">{{ it.title }}</li>
+        <li class="breadcrumb-item"><nuxt-link to="/products">Products</nuxt-link></li>
+        <li class="breadcrumb-item"><nuxt-link to="/products">{{ details.type }}</nuxt-link></li>
+        <li class="breadcrumb-item active">{{ details.title }}</li>
       </ol>
     </nav>
   </div>
 </template>
 
-<script>
-export default {
-  props: ['information'],
-  name: 'InfoBreadcrumb'
-}
+<script setup>
+defineProps({
+  details: Array
+})
 </script>
 
 <style scoped>
