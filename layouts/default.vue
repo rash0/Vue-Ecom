@@ -1,22 +1,22 @@
 <template>
-    <div id="app">
-        <Header />
-        <slot />
-        <Newsletter v-if="$route.path != '/contact'" />
-        <Footer />
-    </div>
+  <div id="app">
+    <Header />
+    <slot />
+    <Newsletter v-if="$route.path != '/contact'" />
+    <Footer />
+  </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-  title: process.env?.npm_package_name,
+  title: 'V-store',
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { hid: 'description', name: 'description', content: process.env?.npm_package_description}
+    { hid: 'description', name: 'description', content: 'A Full StoreFront template build with Nuxt3' }
   ],
   link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/fi.ico' }    ]
+    { rel: 'icon', type: 'image/x-icon', href: '/fi.ico' }]
 })
 </script>
 
