@@ -1,10 +1,10 @@
 <template>
   <section class="carousel">
-    <div id="heroControls" class="carousel slide" data-ride="carousel">
+    <div id="heroControls" class="carousel slide" data-bs-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#heroControls" class="active" data-slide-to="0"></li>
-        <li data-target="#heroControls" data-slide-to="1"></li>
-        <li data-target="#heroControls" data-slide-to="2"></li>
+        <li data-bs-target="#heroControls" class="active" data-bs-slide-to="0"></li>
+        <li data-bs-target="#heroControls" data-bs-slide-to="1"></li>
+        <li data-bs-target="#heroControls" data-bs-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -22,9 +22,6 @@
 </template>
 
 <script>
-// export default {
-//   name: 'Carousel'
-// }
 </script>
 
 <style scoped>

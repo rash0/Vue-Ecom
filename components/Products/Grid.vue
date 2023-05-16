@@ -1,16 +1,15 @@
 <template>
   <div class="container grid">
     <div class="row justify-content-around">
-      <div class="row col-6 pb-4 pr-1">
-        <div class="dropdown">
-          <!-- TODO dropdown is not working -->
-          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SORT BY
+      <div class="row col-6 pb-3">
+        <div class="dropdown mx-3">
+          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SORT BY
             <span style="color:#f2be00;">{{ grid.sortButton }}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" @click="sortDate">Date</a>
-            <a class="dropdown-item" @click="sortPrice" >Price</a>
-            <a class="dropdown-item" @click="sortTrend">Trending</a>
+            <a class="dropdown-item" @click="sortItems('newset')" value="newset">Newest</a>
+            <a class="dropdown-item" @click="sortItems('price')" value="price">Price</a>
+            <a class="dropdown-item" @click="sortItems('trending')" value="trending">Trending</a>
           </div>
         </div>
       </div>
@@ -87,32 +86,21 @@ const grid = reactive({
       sortButton: 'DEFAULT'
 })
 onMounted(() => reSet()) 
+const reSet = () => grid.cards = store.items;
 
 // TODO move this to getters at the store. instead of passing it as props for <Card />
 const slicedCards = computed(() => grid.cards.slice(0, grid.showCards))
 
 const incrementCards = () => grid.showCards += 6;
 
-const sortDate = () => {
-  grid.cards.sort((a, b) => (a.title.length * 2)-(b.title.length * 4))
-    return grid.sortButton = 'DATE'
-}
-
-const sortPrice = () => {
-    grid.cards.sort((a, b) => a.price-b.price)
-    return grid.sortButton = 'PRICE'
-}
-
-const sortTrend = () => {
-    grid.cards.sort((a, b) => a.type.length-b.type.length)
-    return grid.sortButton = 'TRENDING'
-}
-const sortItems = event => { console.log(event.target.getAttribute('value'))
-  // let value = event.target.getAttribute('value')
-  // grid.cards = grid.cards.filter((item) => item.type.match(value) || item.color.match(value))
-}
-
-const reSet = () => grid.cards = store.items;
+const sortItems = (value) => {
+  grid.cards.sort((a, b) => {
+    if(value === 'newset') return (a.title.length * 2)-(b.title.length * 4);
+    if(value === 'price') return (a.price-b.price);
+    if(value === 'trending') return (a.type.length-b.type.length);
+  })
+    return grid.sortButton = value.toUpperCase()
+  }
 
 </script>
 

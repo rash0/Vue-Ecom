@@ -4,9 +4,9 @@
           <div class="card">
             <img class="card-img-top" :src="useAsset(item.img)" alt="Card image cap">
             <div class="overlay">
-              <button type="button" class="btn btn-outline-secondary btn-lg" @click="store.inCart(item)">Add +</button>
+              <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
               <nuxt-link :to="`/details/${item.id}`">
-                <button type="button" @click="store.addtoInfo(item.id)" class="btn btn-outline-secondary btn-lg">Info</button>
+                <button type="button" @click="store.addtoInfo(item.id)" class="btn btn-light btn-lg">Info</button>
               </nuxt-link>
             </div>
             <div class="card-body">
@@ -30,7 +30,7 @@ defineProps({
 <style>
 /* Card Style */
 .card {
-  /* transition: 500ms; */
+  transition: 300ms;
   position: relative;
   overflow: hidden;
 }
@@ -49,7 +49,7 @@ defineProps({
 }
 
 .card:hover .overlay {
-  opacity: 0.8;
+  opacity: 0.4;
 
 }
 
@@ -64,11 +64,11 @@ defineProps({
   background-color: #232b34;
   opacity: 0;
   z-index: 100;
-  /* transition: all 0.3s ease-in; */
+  transition: all 0.3s ease-in;
 }
 
 .card:hover, .card:active {
-  transform: scaleY(1.1) scaleX(1.06);
-  box-shadow: 0 14px 98px rgba(0, 0, 0, 0.25), 0 0px 60px rgba(0, 0, 0, 0.22);
+  transform: scaleY(1.02) scaleX(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 0px 40px rgba(0, 0, 0, 0.22);
 }
 </style>
