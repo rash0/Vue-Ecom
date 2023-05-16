@@ -7,11 +7,9 @@ export default defineNuxtConfig({
     dirs: ["store"],
   },
   modules: ["@nuxt/devtools", "@pinia/nuxt"],
+  plugins: [{ src: "~/plugins/vercel.ts", mode: "client" }],
   pinia: {
-    autoImports: [
-      "defineStore", // import { defineStore } from 'pinia'
-      ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
-    ],
+    autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
   },
   css: ["~/assets/styles/main.scss"],
 });
