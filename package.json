@@ -1,5 +1,5 @@
 {
-  "name": "V-Store",
+  "name": "v-store",
   "private": true,
   "scripts": {
     "build": "nuxt build",

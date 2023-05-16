@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-// import items from "./db"; //TODO make it async function
 
 export const useMainStore = defineStore("main", {
   state: () => ({
@@ -134,12 +133,9 @@ export const useMainStore = defineStore("main", {
     // TODO need to be fixed
     totalPrice: (state) => {
       if (state.cartItems.length != 0) {
-        const tot = state.cartItems.reduce(
-          (a, b) => {
-            console.log(a.price === null ? a : a + b.price);
-          }
-          // b.price == null ? a : a + b.price
-        );
+        const tot = state.cartItems.reduce((a, b) => {
+          console.log(a.price === null ? a : a + b.price);
+        });
         return tot;
       }
     },
