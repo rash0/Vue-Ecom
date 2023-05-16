@@ -8,7 +8,9 @@
     <div class="related-item">
       <hr>
       <h6 class="pb-4">RELATED PRODUCTS</h6>
-      <ProductsCard :cards="sliceItems" />
+      <ClientOnly>
+        <ProductsCard :cards="sliceItems" />
+      </ClientOnly>
     </div>
 
   </div>
@@ -16,9 +18,10 @@
 
 <script setup>
 const store = useMainStore()
+const route = useRoute()
 
 const info = reactive({
-    details: [],
+    details: store.items[route.params.id],
     relatedItems: []
 })
 
@@ -29,13 +32,6 @@ const sliceItems = computed(() => {
   }   
   return info.relatedItems
 })
-
-onMounted(() => {
-    info.details = store.productInfo
-})
-
-
-// const sendInfo = (it, id) => store.addtoInfo(it, id)
 </script>
 
 <style scoped>

@@ -1,6 +1,8 @@
 <template>
-    <ProductsBreadCrumbs />
-    <ProductsGrid />
+    <div>
+        <ProductsBreadCrumbs />
+        <ProductsGrid />
+    </div>
 </template>
 
 <script>

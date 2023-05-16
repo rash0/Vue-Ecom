@@ -1,6 +1,7 @@
 {
   "name": "v-store",
-  "private": true,
+  "description": "A Full StoreFront build with Nuxt3",
+  "private": false,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
