@@ -28,7 +28,7 @@
 
         <div class="col-3 col-xl-2 col-lg-3 col-md-3 col-sm-3">
           <div class="footer-widget">
-            <div class="footer-title">Catagories</div>
+            <div class="footer-title">Categories</div>
             <ul class="list-unstyled">
               <NuxtLink to="/products"><li>Tables</li></NuxtLink>
               <NuxtLink to="/products"><li>Lamps</li></NuxtLink>
