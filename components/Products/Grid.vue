@@ -16,7 +16,7 @@
       <div class="row col-6 flex-row-reverse">
         <div class="view-button">
           <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATAGORIES</button>
+            <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATEGORIES</button>
             <div class="dropdown-menu" aria-labelledby="MenuLink">
               <a class="dropdown-item" v-for="item in grid.types" :key="item.name" @click="sortItems" :value="item.value">{{ item.name }}</a>
               <div class="dropdown-divider"></div>
@@ -34,7 +34,7 @@
           <div class="card-selector">
             <div class="card-body p-5">
               <div class="search-title">
-                <h4>Catagories  +</h4>
+                <h4>Categories  +</h4>
                 <h6 v-for="item in grid.types" :key="item.name" @click="sortItems" :value="item.value">{{ item.name }}</h6>
                 <h4 class="search-title">Filter by  +</h4>
                 <div class="co">
