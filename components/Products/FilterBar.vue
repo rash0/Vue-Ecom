@@ -1,20 +1,20 @@
 <template>
-    <div class="col-3 d-none d-lg-block d-xl-block" style="border:1px solid red">
+    <div class="col-3 d-none d-lg-block d-xl-block">
         <div class="card-selector">
             <div class="card-body p-5">
                 <div class="search-title">
                     <h4>Catagories +</h4>
-                    <!-- <h6 v-for="item in grid.types" :key="item.name" @click="sortItems" :value="item.value">{{ item.name }}
+                    <h6 v-for="item in info.types" :key="item.name" @click="" :value="item.value">
+                        {{ item.name }}
                     </h6>
                     <h4 class="search-title">Filter by +</h4>
                     <div class="co">
                         <h5>Color</h5>
-                        <span v-for="item in grid.colors" :key="item.name" class="circle"
-                            style="`background-color:${item.name}`" @click="sortItems" :value="item.value"></span>
+                        <span v-for="item in info.colors" :key="item.name" class="circle"
+                            :style="`background-color:${item.value}`" @click="" :value="item.name"></span>
                     </div>
-                    <br><br> -->
+                    <br><br>
                     <h5>Price Range</h5>
-                    <p>Slider should be herererer</p>
                 </div>
             </div>
         </div>
@@ -32,10 +32,10 @@ const info = reactive({
     ],
     colors: [
         // TODO change the background colors to better and more subtle ones
-        { name: 'yellow', value: 'yellow' },
-        { name: 'blue', value: 'blue' },
-        { name: 'white', value: 'white' },
-        { name: 'red', value: 'red' }
+        { name: 'yellow', value: '#FFC015' },
+        { name: 'blue', value: '#829FAA' },
+        { name: 'white', value: '#BFB8AE' },
+        { name: 'silver', value: '#817A77' }
     ]
 })
 
@@ -57,7 +57,6 @@ const info = reactive({
     height: 17px;
     width: 17px;
     border-radius: 50%;
-    border: 0.7px solid #2c3539;
     display: inline-block;
     margin-left: 6px;
     cursor: pointer

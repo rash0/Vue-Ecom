@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex my-3" style="border:1px solid red">
-        <div class="dropdown flex-fill px-4 px-sm-0" style="border:1px solid red">
+    <div class="d-flex">
+        <div class="dropdown flex-fill px-4 px-sm-0">
             <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">SORT BY
                 <span style="color:#f2be00;">{{ sort }}</span>
@@ -11,7 +11,7 @@
                 <a class="dropdown-item" @click="sortBy('trending')" value="trending">Trending</a>
             </div>
         </div>
-        <div class="dropdown d-block d-lg-none d-xl-none px-4 px-sm-0" style="border:1px solid red">
+        <div class="dropdown d-block d-lg-none d-xl-none px-4 px-sm-0">
             <button class="btn btn-light dropdown-toggle" role="button" id="MenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">CATAGORIES</button>
             <!-- <div class="dropdown-menu" aria-labelledby="MenuLink">

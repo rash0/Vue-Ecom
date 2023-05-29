@@ -1,15 +1,17 @@
 <template>
-  <div class="container mb-4" style="border:1px solid red">
-    <div v-if="grid.cards.length === 0" class="d-flex align-items-center justify-content-center">
-      <h4>Sorry, we can't find any product with this features</h4>
+  <div class="container mb-4">
+    <div class="mx-3">
+      <ProductsDropDownFilters @sort-item="sortItems" />
     </div>
-    <div v-else class="main-grid d-flex" style="border:1px solid red">
+    <div v-if="grid.cards.length !== 0" class="main-grid d-flex p-3">
       <ProductsFilterBar />
       <div class="col-11 col-md-12 col-lg-8 mx-auto" style="margin-left:25px !important">
-        <!-- <ProductsDropDownFilters @sort-item="sortItems" /> -->
         <ProductsCard :cards="slicedCards" />
         <ProductsMoreButton :is-show="grid.cards.length !== 0" @increment-cards="grid.showCards += 6" />
       </div>
+    </div>
+    <div v-else class="d-flex align-items-center justify-content-center">
+      <h4>Sorry, we can't find any product with this features</h4>
     </div>
   </div>
 </template>
