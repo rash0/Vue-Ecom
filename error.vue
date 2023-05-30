@@ -1,15 +1,15 @@
 <template>
-	<div id="notfound">
-		<div class="notfound">
-			<div class="notfound-404">
-				<div></div>
-				<h1>404</h1>
-			</div>
-			<h2>Page not found</h2>
-			<p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-			<nuxt-link to="/">home page</nuxt-link>
-		</div>
-	</div>
+  <div id="notfound">
+    <div class="notfound">
+      <div class="notfound-404">
+        <div></div>
+        <h1>404</h1>
+      </div>
+      <h2>Page not found</h2>
+      <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+      <NuxtLink to="/">home page</NuxtLink>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -25,8 +25,8 @@
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .notfound {
@@ -51,8 +51,8 @@
   bottom: 0;
   background: #ffa200;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
   border: 5px dashed #000;
   border-radius: 5px;
 }
@@ -65,7 +65,7 @@
   bottom: -5px;
   top: -5px;
   -webkit-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.1) inset;
   border-radius: 5px;
 }
 
@@ -78,8 +78,8 @@
   position: absolute;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   text-align: center;
   height: 40px;
@@ -120,5 +120,4 @@
 .notfound a:hover {
   background-color: #4eb5e6;
 }
-
 </style>

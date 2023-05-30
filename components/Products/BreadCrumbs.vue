@@ -1,15 +1,15 @@
 <template>
   <div>
-  <h1 class="pt-3 text-center">New arrivals</h1>
-  <nav class="d-flex justify-content-center" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <nuxt-link to="/">Home</nuxt-link>
-      </li>
-      <li class="breadcrumb-item active" aria-current="page">Products</li>
-    </ol>
-  </nav>
-</div>
+    <h1 class="pt-3 text-center">New arrivals</h1>
+    <nav class="d-flex justify-content-center" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <NuxtLink to="/">Home</NuxtLink>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Products</li>
+      </ol>
+    </nav>
+  </div>
 </template>
 
 <style scoped>

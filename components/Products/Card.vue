@@ -5,9 +5,9 @@
         <img class="card-img-top" :src="useAsset(item.img)" alt="Card image cap">
         <div class="overlay">
           <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
-          <nuxt-link :to="`/details/${item.id}`">
+          <NuxtLink :to="`/details/${item.id}`">
             <button type="button" @click="store.addtoInfo(item.id)" class="btn btn-light btn-lg">Info</button>
-          </nuxt-link>
+          </NuxtLink>
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
