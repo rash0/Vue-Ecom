@@ -9,22 +9,26 @@
       <div class="navbar-group">
         <HeaderSearchBar />
         <div class="user">
-          <img data-bs-toggle="modal" data-bs-target="#userModal" width="25" height="25" src="https://img.icons8.com/ultraviolet/40/gender-neutral-user.png" alt="gender-neutral-user"/>
+          <img data-bs-toggle="modal" data-bs-target="#userModal" width="25" height="25"
+            src="https://img.icons8.com/ultraviolet/40/gender-neutral-user.png" alt="gender-neutral-user" />
         </div>
-        <HeaderCartButton @open="cartState"/>
+        <HeaderCartButton @open="cartState" />
       </div>
     </nav>
     <!--User Modal-->
     <HeaderUserModal />
     <!--Cart Component-->
-    <Cart :is-open="cart.state" @closeCart="cartState"/>
-    </div>
+    <Cart :is-open="cart.state" @closeCart="cartState" />
+  </div>
 </template>
 
-<script setup>
-const cart = reactive({state : false})
+<script setup lang="ts">
 
-function cartState() {
+const cart = reactive({
+  state: false
+})
+
+function cartState(): void {
   cart.state = !cart.state
 }
 
@@ -32,8 +36,9 @@ function cartState() {
 
 <style>
 nav {
-  z-index:100;
+  z-index: 100;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -43,29 +48,33 @@ nav {
   padding-right: 20px;
 }
 
-.navbar-group{
+.navbar-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.navbar-item a{
+
+.navbar-item a {
   margin-left: 13px;
   font-size: 17px;
   text-decoration: none;
   color: black;
 }
+
 .close {
-  position:relative;
-  bottom:20px;
-  left:10px;
+  position: relative;
+  bottom: 20px;
+  left: 10px;
   font-size: 31px;
   color: #000;
 }
 
-.navbar-item.bc a:hover, .navbar-item.bc a:active {
+.navbar-item.bc a:hover,
+.navbar-item.bc a:active {
   color: #FFD700;
 }
-.btn-sm{
+
+.btn-sm {
   border-radius: 0;
 }
 
@@ -103,24 +112,24 @@ form .btn-xl.btn-success.mt-3 {
   width: 100%;
   height: 50px;
   font-size: 20px;
-  outline:none;
+  outline: none;
   cursor: pointer;
   box-shadow: 0 26px 38px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bag span {
-    background-color: #6394F8;
-    border-radius: 10px;
-    color: white;
-    position: absolute;
-    font-size: 15px;
-    line-height: 1;
-    padding: 2px 3px 3px 3px;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-    margin-left: -9px;
-    bottom: 1rem;
+  background-color: #6394F8;
+  border-radius: 10px;
+  color: white;
+  position: absolute;
+  font-size: 15px;
+  line-height: 1;
+  padding: 2px 3px 3px 3px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-left: -9px;
+  bottom: 1rem;
 }
 
 .bag img {
@@ -129,8 +138,6 @@ form .btn-xl.btn-success.mt-3 {
   height: auto;
 }
 
-.user{
+.user {
   cursor: pointer
-}
-
-</style>
+}</style>

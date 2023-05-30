@@ -16,7 +16,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
 const store = useMainStore()
 
 const grid = reactive({
@@ -37,6 +38,7 @@ const sortItems = (value) => {
     if (value === 'price') return (a.price - b.price);
     if (value === 'trending') return (a.type.length - b.type.length);
   })
+  return grid.sortButton = value.toUpperCase()
 }
 
 </script>

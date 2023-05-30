@@ -21,9 +21,6 @@
   </section>
 </template>
 
-<script>
-</script>
-
 <style scoped>
 .img-fluid {
   min-width: 800px !important;

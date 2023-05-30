@@ -16,7 +16,7 @@
           <div class="newsletter-form">
             <form>
               <input class="nl-email" placeholder="Your E-mail">
-              <button class="input-button" @click.prevent="haSubmit">Submit</button>
+              <button class="input-button" @click.prevent="submit">Submit</button>
             </form>
           </div>
         </div>
@@ -26,19 +26,15 @@
   </section>
 </template>
 
-<script>
-export default {
-  // name: 'Newsletter',
-  // methods: {
-  //   haSubmit() {
-  //     return alert('Thank you for subscribing')
-  //   }
-  // }
+<script setup lang="ts">
+
+function submit(): void {
+  return alert('Thank you for subscribing')
 }
+
 </script>
 
 <style scoped>
-
 .newsletter-area {
   position: relative;
   z-index: 1;
@@ -100,7 +96,8 @@ export default {
   box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 16px 70px 0 rgba(0, 0, 0, 0.69);
 }
 
-.newsletter-area .newsletter-form .input-button:hover, .newsletter-area .newsletter-form .input-button:focus {
+.newsletter-area .newsletter-form .input-button:hover,
+.newsletter-area .newsletter-form .input-button:focus {
   background-color: inherit;
   color: black;
 }

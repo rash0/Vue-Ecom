@@ -18,12 +18,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
 const store = useMainStore()
 
-defineProps({
-  cards: Array
-})
+defineProps<{
+  cards: {
+    id: number,
+    img: string,
+    title: string,
+    price: number,
+  }[]
+}>()
 
 </script>
 
