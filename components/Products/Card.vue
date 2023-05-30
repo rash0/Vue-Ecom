@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div v-for="item in cards" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
+  <div class="row justify-content-center text-center">
+    <div v-for="item in cards" class="col-10 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
       <div class="card">
         <img class="card-img-top" :src="useAsset(item.img)" alt="Card image cap">
         <div class="overlay">
@@ -50,14 +50,14 @@ defineProps<{
   margin-bottom: 10px;
 }
 
-.card:hover img {
+/* .card:hover img {
   filter: blur(4px);
-}
+} */
 
-.card:hover .overlay {
+/* .card:hover .overlay {
   opacity: 0.4;
 
-}
+} */
 
 .card .overlay {
   position: absolute;
