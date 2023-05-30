@@ -1,29 +1,35 @@
 <template>
-    <div class="row">
-      <div v-for="item in cards" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
-          <div class="card">
-            <img class="card-img-top" :src="useAsset(item.img)" alt="Card image cap">
-            <div class="overlay">
-              <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
-              <nuxt-link :to="`/details/${item.id}`">
-                <button type="button" @click="store.addtoInfo(item.id)" class="btn btn-light btn-lg">Info</button>
-              </nuxt-link>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <p class="card-text">${{ item.price }}</p>
-            </div>
-          </div>
+  <div class="row">
+    <div v-for="item in cards" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
+      <div class="card">
+        <img class="card-img-top" :src="useAsset(item.img)" alt="Card image cap">
+        <div class="overlay">
+          <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
+          <nuxt-link :to="`/details/${item.id}`">
+            <button type="button" @click="store.addtoInfo(item.id)" class="btn btn-light btn-lg">Info</button>
+          </nuxt-link>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">${{ item.price }}</p>
+        </div>
       </div>
     </div>
+  </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
 const store = useMainStore()
 
-defineProps({
-    cards: Array
-})
+defineProps<{
+  cards: {
+    id: number,
+    img: string,
+    title: string,
+    price: number,
+  }[]
+}>()
 
 </script>
 
@@ -67,7 +73,8 @@ defineProps({
   transition: all 0.3s ease-in;
 }
 
-.card:hover, .card:active {
+.card:hover,
+.card:active {
   transform: scaleY(1.02) scaleX(1.02);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 0px 40px rgba(0, 0, 0, 0.22);
 }

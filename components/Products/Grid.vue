@@ -3,7 +3,8 @@
     <div class="row justify-content-around">
       <div class="row col-6 pb-3">
         <div class="dropdown mx-3">
-          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SORT BY
+          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">SORT BY
             <span style="color:#f2be00;">{{ grid.sortButton }}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -16,12 +17,15 @@
       <div class="row col-6 flex-row-reverse">
         <div class="view-button">
           <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATAGORIES</button>
+            <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CATAGORIES</button>
             <div class="dropdown-menu" aria-labelledby="MenuLink">
-              <a class="dropdown-item" v-for="item in grid.types" :key="item.name" @click="sortItems" :value="item.value">{{ item.name }}</a>
+              <a class="dropdown-item" v-for="item in grid.types" :key="item.name" @click="sortItems"
+                :value="item.value">{{ item.name }}</a>
               <div class="dropdown-divider"></div>
               <div class="pl-3">
-                <span v-for="item in grid.colors" :key="item.name" class="circle" style="`background-color:${item.name}`" @click="sortItems" :value="item.value"></span>
+                <span v-for="item in grid.colors" :key="item.name" class="circle" style="`background-color:${item.name}`"
+                  @click="sortItems" :value="item.value"></span>
               </div>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" @click="reSet">Reset</a>
@@ -34,12 +38,14 @@
           <div class="card-selector">
             <div class="card-body p-5">
               <div class="search-title">
-                <h4>Catagories  +</h4>
-                <h6 v-for="item in grid.types" :key="item.name" @click="sortItems" :value="item.value">{{ item.name }}</h6>
-                <h4 class="search-title">Filter by  +</h4>
+                <h4>Catagories +</h4>
+                <h6 v-for="item in grid.types" :key="item.name" @click="sortItems" :value="item.value">{{ item.name }}
+                </h6>
+                <h4 class="search-title">Filter by +</h4>
                 <div class="co">
                   <h5>Color</h5>
-                  <span v-for="item in grid.colors" :key="item.name" class="circle" style="`background-color:${item.name}`" @click="sortItems" :value="item.value"></span>
+                  <span v-for="item in grid.colors" :key="item.name" class="circle"
+                    style="`background-color:${item.name}`" @click="sortItems" :value="item.value"></span>
                 </div>
                 <br><br>
                 <h5>Price Range</h5>
@@ -53,10 +59,12 @@
             <h4>Sorry, we can't find any product with this features</h4>
           </div>
 
-          <ProductsCard :cards="slicedCards"/>
+          <ProductsCard :cards="slicedCards" />
 
-          <div v-if="grid.cards.length !== 0" class="d-grid col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-3">
-            <button type="button" @click="incrementCards" class="btn btn-outline-secondary btn-lg btn-block">More +</button>
+          <div v-if="grid.cards.length !== 0"
+            class="d-grid col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-3">
+            <button type="button" @click="incrementCards" class="btn btn-outline-secondary btn-lg btn-block">More
+              +</button>
           </div>
         </div>
       </div>
@@ -64,28 +72,29 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
 const store = useMainStore()
 
 const grid = reactive({
-      types: [
-        {name: 'Table', value:'table'},
-        {name: 'Lamps', value:'lamp'},
-        {name: 'Chairs', value:'chair'},
-        {name: 'Sofas', value:'sofa'}
-      ],
-      colors: [
-        // TODO change the background colors to better and more subtle ones
-        {name: 'yellow', value:'yellow'},
-        {name: 'blue', value:'blue'},
-        {name: 'white', value:'white'},
-        {name: 'red', value:'red'}
-      ],
-      cards: [],
-      showCards: 6,
-      sortButton: 'DEFAULT'
+  types: [
+    { name: 'Table', value: 'table' },
+    { name: 'Lamps', value: 'lamp' },
+    { name: 'Chairs', value: 'chair' },
+    { name: 'Sofas', value: 'sofa' }
+  ],
+  colors: [
+    // TODO change the background colors to better and more subtle ones
+    { name: 'yellow', value: 'yellow' },
+    { name: 'blue', value: 'blue' },
+    { name: 'white', value: 'white' },
+    { name: 'red', value: 'red' }
+  ],
+  cards: [],
+  showCards: 6,
+  sortButton: 'DEFAULT'
 })
-onMounted(() => reSet()) 
+onMounted(() => reSet())
 const reSet = () => grid.cards = store.items;
 
 // TODO move this to getters at the store. instead of passing it as props for <Card />
@@ -95,12 +104,12 @@ const incrementCards = () => grid.showCards += 6;
 
 const sortItems = (value) => {
   grid.cards.sort((a, b) => {
-    if(value === 'newset') return (a.title.length * 2)-(b.title.length * 4);
-    if(value === 'price') return (a.price-b.price);
-    if(value === 'trending') return (a.type.length-b.type.length);
+    if (value === 'newset') return (a.title.length * 2) - (b.title.length * 4);
+    if (value === 'price') return (a.price - b.price);
+    if (value === 'trending') return (a.type.length - b.type.length);
   })
-    return grid.sortButton = value.toUpperCase()
-  }
+  return grid.sortButton = value.toUpperCase()
+}
 
 </script>
 
@@ -119,14 +128,14 @@ const sortItems = (value) => {
   border-radius: 0 !important;
   border: 1px solid grey !important;
 }
-.dropdown-menu{
+
+.dropdown-menu {
   background-color: #eee;
   color: #2c3539;
 }
 
-.dropdown-menu > a:hover{
+.dropdown-menu>a:hover {
   background-color: #dae0e5
-
 }
 
 .btn-outline-secondary {
@@ -153,6 +162,5 @@ const sortItems = (value) => {
   border: 0.7px solid #2c3539;
   display: inline-block;
   margin-left: 6px;
-  cursor:pointer
-}
-</style>
+  cursor: pointer
+}</style>

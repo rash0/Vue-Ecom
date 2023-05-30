@@ -7,14 +7,17 @@
 
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex align-items-center justify-content-start">
         <div class="info pt-xl-0 pt-lg-0 pt-5">
-          <span class="float-left pr-3">★★★★★</span><h6 style="width:190px;">3 reviews</h6>
+          <span class="float-left pr-3">★★★★★</span>
+          <h6 style="width:190px;">3 reviews</h6>
           <h1 class="font-weight-bold text-uppercase pt-3">{{ details.title }}</h1>
           <h4>${{ details.price }}</h4>
           <br><br><br>
           <div class="control number text-center">
-            <button class="decrement-button" @click="decrememnt" style="border-right: 0.2px solid lightgrey;float:left;margin-right: 11px;">−</button>
+            <button class="decrement-button" @click="decrememnt"
+              style="border-right: 0.2px solid lightgrey;float:left;margin-right: 11px;">−</button>
             <span>{{ quantity }}</span>
-            <button class="increment-button" @click="incrememnt" style="border-left: 0.2px solid lightgrey;margin-left: 16px;">+</button>
+            <button class="increment-button" @click="incrememnt"
+              style="border-left: 0.2px solid lightgrey;margin-left: 16px;">+</button>
             <br><br>
           </div>
           <button class="add-to-cart-button" @click="addtoCart(details, details.id)">ADD TO CART</button>
@@ -24,7 +27,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 defineProps({
   details: Object
@@ -35,19 +38,21 @@ const quantity = ref(1)
 const incrememnt = () => quantity.value < 9 ? quantity.value++ : 0
 const decrememnt = () => quantity.value > 1 ? quantity.value-- : 0
 
-const addtoCart = (it, id) =>  { // TODO looks strange,,check later
-  for (var i = 0; i < quantity.value; i++) {
-    store.inCart(it, id)
-  }
-}
+function addtoCart() { }
+// const addtoCart = (it, id) =>  { // TODO looks strange,,check later
+//   for (var i = 0; i < quantity.value; i++) {
+//     store.inCart(it, id)
+//   }
+// }
 
 </script>
 
 <style scoped>
-.img-fluid{
+.img-fluid {
   min-width: 90% !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .control.number {
   border: 0.2px solid lightgrey;
   font-size: 19px;
@@ -56,20 +61,24 @@ const addtoCart = (it, id) =>  { // TODO looks strange,,check later
   width: 155px;
   margin-bottom: 30px;
 }
-.control.number button{
-  border:none;
+
+.control.number button {
+  border: none;
   background: inherit;
   width: 56px;
   height: 35px;
   outline-style: none;
 }
-.control.number button:active{
+
+.control.number button:active {
   background-color: lightgrey;
 }
+
 .control.number h5 {
   margin-left: 13px;
   margin-right: 13px;
 }
+
 .add-to-cart-button {
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
@@ -87,9 +96,10 @@ const addtoCart = (it, id) =>  { // TODO looks strange,,check later
   box-shadow: 0 26px 38px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
-.add-to-cart-button:hover, .add-to-cart-button:focus {
+
+.add-to-cart-button:hover,
+.add-to-cart-button:focus {
   background-color: inherit;
   color: black;
 }
-
 </style>
