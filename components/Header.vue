@@ -117,27 +117,7 @@ form .btn-xl.btn-success.mt-3 {
   box-shadow: 0 26px 38px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.bag span {
-  background-color: #6394F8;
-  border-radius: 10px;
-  color: white;
-  position: absolute;
-  font-size: 15px;
-  line-height: 1;
-  padding: 2px 3px 3px 3px;
-  text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-  margin-left: -9px;
-  bottom: 1rem;
-}
-
-.bag img {
-  cursor: pointer;
-  width: 30px;
-  height: auto;
-}
-
 .user {
   cursor: pointer
-}</style>
+}
+</style>

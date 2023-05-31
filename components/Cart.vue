@@ -18,20 +18,20 @@
             <h6>${{ item.price }}</h6>
           </div>
           <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
-            <span class="remove-btn" @click="store.outCart(item.id)">remove</span>
+            <span class="remove-btn" style="cursor: pointer;" @click="store.outCart(item.id)">remove</span>
           </div>
         </div>
         <div v-if="store.cartItems.length">
           <hr>
           <div class="row align-items-center p-2" style="background:#7dcf85">
-            <div class="col pl-3">
+            <div class="col pl-3 pt-3">
               <h4>Subtotal</h4>
-              <p class="fs-6 text-muted" style="margin-top: -10px">{{ `(${store.cartItems.length} items)` }}</p>
+              <p class="fs-6 px-3" style="color:#303E49;margin-top: -8px">{{ `(${store.cartItems.length} items)`
+              }}
+              </p>
             </div>
             <div class="col text-center pr-3">
-              <h4 class="align-middle">$ 443</h4>
-
-              <!-- <h4>${{ store.totalPrice }}</h4> -->
+              <h4>${{ store.totalPrice }}</h4>
             </div>
           </div>
         </div>
@@ -52,9 +52,6 @@ const cart = defineProps({
   }
 })
 
-// defineEmits([''])
-
-// watch(() => props.cartState, (value) => cart.isOn = value)
 </script>
 
 <style scoped>

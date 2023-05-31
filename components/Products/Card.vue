@@ -50,14 +50,14 @@ defineProps<{
   margin-bottom: 10px;
 }
 
-/* .card:hover img {
+.card:hover img {
   filter: blur(4px);
-} */
+}
 
-/* .card:hover .overlay {
+.card:hover .overlay {
   opacity: 0.4;
 
-} */
+}
 
 .card .overlay {
   position: absolute;

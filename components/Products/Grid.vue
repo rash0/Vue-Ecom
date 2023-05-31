@@ -7,7 +7,7 @@
       <ProductsFilterBar />
       <div class="col-11 col-md-12 col-lg-8 mx-auto" style="margin-left:25px !important">
         <ProductsCard :cards="slicedCards" />
-        <ProductsMoreButton :is-show="grid.cards.length !== 0" @increment-cards="grid.showCards += 6" />
+        <ProductsMoreButton v-if="grid.cards.length !== 0" @increment-cards="grid.showCards += 6" />
       </div>
     </div>
     <div v-else class="d-flex align-items-center justify-content-center">

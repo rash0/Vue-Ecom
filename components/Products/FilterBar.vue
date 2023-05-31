@@ -7,14 +7,18 @@
                     <h6 v-for="item in info.types" :key="item.name" @click="" :value="item.value">
                         {{ item.name }}
                     </h6>
-                    <h4 class="search-title">Filter by +</h4>
-                    <div class="co">
+                </div>
+                <div class="search-title">
+                    <h4>Filter by +</h4>
+                    <div class="colors">
                         <h5>Color</h5>
                         <span v-for="item in info.colors" :key="item.name" class="circle"
                             :style="`background-color:${item.value}`" @click="" :value="item.name"></span>
                     </div>
-                    <br><br>
+                </div>
+                <div class="search-title">
                     <h5>Price Range</h5>
+                    <input type="range" min="0" max="100" value="50" class="slider" />
                 </div>
             </div>
         </div>
@@ -47,6 +51,10 @@ const info = reactive({
     height: 40rem;
     background: #2c3539 !important;
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 26px 70px 0 rgba(0, 0, 0, 0.69);
+}
+
+.search-title {
+    margin-bottom: 60px;
 }
 
 .search-title h6 {

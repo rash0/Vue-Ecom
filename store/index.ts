@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
+import { Product, State } from '@/components/types'
 
 export const useMainStore = defineStore("main", {
-  state: () => ({
+  state: (): State => ({
     productInfo: {},
     cartItems: [],
     items: [
@@ -129,22 +130,24 @@ export const useMainStore = defineStore("main", {
   }),
   getters: {
     // Cart Component
-    itemsNumber: (state) => state.cartItems.length,
-    // TODO need to be fixed
-    totalPrice: (state) => {
-      if (state.cartItems.length != 0) {
-        const tot = state.cartItems.reduce((a, b) => {
-          console.log(a.price === null ? a : a + b.price);
-        });
-        return tot;
+    itemsNumber: ({ cartItems }): number => cartItems.length,
+    totalPrice: ({ cartItems }): number | undefined => {
+      if (cartItems.length !== 1) {
+        const sum = cartItems?.reduce((acc: number, obj: any) => {
+          let result = acc + obj.price
+          return result
+        },0);
+        return sum;
       }
+      return cartItems[0].price;
     },
     // Info Component
-    productDetails: (state) => {
-      return (productId) => {
-        return state.items.find((item) => item.id === productId);
-      };
-    },
+    // TODO
+    // productDetails: ({ items }) => {
+    //   return (productId) => {
+    //     return items.find((item) => item.id === productId);
+    //   };
+    // },
     // infoLength: (state) => {
     //   if (state.infoPage.length > 0) {
     //     return state.infoPage.splice(0, 1);
@@ -153,17 +156,17 @@ export const useMainStore = defineStore("main", {
   },
   actions: {
     // Cart Component
-    inCart(n) {
+    inCart(n: object) {
       return this.cartItems.push(n);
     },
-    outCart(n) {
+    outCart(n: number) {
       let index = this.cartItems.findIndex((x) => x.id === n);
       return this.cartItems.splice(index, 1);
     },
     // Info Component
-    addtoInfo(n) {
+    addtoInfo(n: number) {
       const selectedProduct = this.items.find((item) => item.id === n);
-      return (this.productInfo = selectedProduct);
+      this.productInfo = selectedProduct || {} ;
     },
   },
 });
