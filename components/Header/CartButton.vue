@@ -14,7 +14,7 @@ defineEmits(['open'])
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .bag span {
     background-color: #6394F8;
     border-radius: 10px;
@@ -28,11 +28,11 @@ defineEmits(['open'])
     white-space: nowrap;
     margin-left: -9px;
     bottom: 1rem;
-}
 
-.bag img {
-    cursor: pointer;
-    width: 30px;
-    height: auto;
+    img {
+        cursor: pointer;
+        width: 30px;
+        height: auto;
+    }
 }
 </style>

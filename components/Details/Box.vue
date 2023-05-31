@@ -2,7 +2,7 @@
   <div>
     <div class="row mb-5">
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-        <img class="img-fluid" :src="useAsset(details.img)">
+        <img class="img-fluid" :src="useAsset(details.img!)">
       </div>
 
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex align-items-center justify-content-start">
@@ -28,17 +28,18 @@
 </template>
 
 <script setup lang="ts">
+import { Product } from '@/components/types'
 
-defineProps({
-  details: Object
-})
+defineProps<{
+  details: Product
+}>()
 
 const quantity = ref(1)
 
 const incrememnt = () => quantity.value < 9 ? quantity.value++ : 0
 const decrememnt = () => quantity.value > 1 ? quantity.value-- : 0
 
-function addtoCart() { }
+function addtoCart(a: any, b: any) { }
 // const addtoCart = (it, id) =>  { // TODO looks strange,,check later
 //   for (var i = 0; i < quantity.value; i++) {
 //     store.inCart(it, id)
@@ -47,36 +48,38 @@ function addtoCart() { }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .img-fluid {
   min-width: 90% !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.control.number {
-  border: 0.2px solid lightgrey;
-  font-size: 19px;
-  font-weight: bold;
-  height: 35px;
-  width: 155px;
-  margin-bottom: 30px;
-}
+.control {
+  .number {
+    border: 0.2px solid lightgrey;
+    font-size: 19px;
+    font-weight: bold;
+    height: 35px;
+    width: 155px;
+    margin-bottom: 30px;
 
-.control.number button {
-  border: none;
-  background: inherit;
-  width: 56px;
-  height: 35px;
-  outline-style: none;
-}
+    button {
+      border: none;
+      background: inherit;
+      width: 56px;
+      height: 35px;
+      outline-style: none;
 
-.control.number button:active {
-  background-color: lightgrey;
-}
+      &:active {
+        background-color: lightgrey;
+      }
 
-.control.number h5 {
-  margin-left: 13px;
-  margin-right: 13px;
+      h5 {
+        margin-left: 13px;
+        margin-right: 13px;
+      }
+    }
+  }
 }
 
 .add-to-cart-button {
@@ -95,11 +98,10 @@ function addtoCart() { }
   border: none;
   box-shadow: 0 26px 38px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-}
-
-.add-to-cart-button:hover,
-.add-to-cart-button:focus {
-  background-color: inherit;
-  color: black;
+  &:hover,
+  &:focus {
+    background-color: inherit;
+    color: black;
+  }
 }
 </style>

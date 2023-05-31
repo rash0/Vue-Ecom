@@ -34,7 +34,7 @@ function cartState(): void {
 
 </script>
 
-<style>
+<style lang="scss">
 nav {
   z-index: 100;
 }
@@ -54,11 +54,21 @@ nav {
   justify-content: space-between;
 }
 
-.navbar-item a {
-  margin-left: 13px;
-  font-size: 17px;
-  text-decoration: none;
-  color: black;
+.navbar-item {
+  a {
+    margin-left: 13px;
+    font-size: 17px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .bc {
+
+    a:hover,
+    a:active {
+      color: #FFD700;
+    }
+  }
 }
 
 .close {
@@ -69,10 +79,6 @@ nav {
   color: #000;
 }
 
-.navbar-item.bc a:hover,
-.navbar-item.bc a:active {
-  color: #FFD700;
-}
 
 .btn-sm {
   border-radius: 0;
@@ -91,19 +97,20 @@ nav {
   -moz-transition: all .5s;
   transition: all .5s;
   margin-right: 10px;
+
+  &:focus {
+    width: 160px;
+    border: solid 1px #ccc;
+    background-color: #fff;
+    border-color: #98ccfd;
+    -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    backface-visibility: hidden;
+    perspective: 1000;
+  }
 }
 
-.search:focus {
-  width: 160px;
-  border: solid 1px #ccc;
-  background-color: #fff;
-  border-color: #98ccfd;
-  -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-  -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-  box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-  backface-visibility: hidden;
-  perspective: 1000;
-}
 
 form .btn-xl.btn-success.mt-3 {
   position: relative;

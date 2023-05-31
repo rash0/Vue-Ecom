@@ -30,8 +30,6 @@ const reSet = () => grid.cards = store.items;
 // TODO move this to getters at the store. instead of passing it as props for <Card />
 const slicedCards = computed(() => grid.cards.slice(0, grid.showCards))
 
-// const incrementCards = () => grid.showCards += 6;
-
 const sortItems = (value) => {
   grid.cards.sort((a, b) => {
     if (value === 'newset') return (a.title.length * 2) - (b.title.length * 4);

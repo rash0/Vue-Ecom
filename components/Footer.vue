@@ -6,10 +6,18 @@
           <div class="footer-widget">
             <div class="footer-title">Navigate</div>
             <ul class="list-unstyled">
-              <NuxtLink to="/"><li>About Us</li></NuxtLink>
-              <NuxtLink to="/"><li>Blog</li></NuxtLink>
-              <NuxtLink to="/"><li>Contact Us</li></NuxtLink>
-              <NuxtLink to="/"><li>Sitemap</li></NuxtLink>
+              <NuxtLink to="/">
+                <li>About Us</li>
+              </NuxtLink>
+              <NuxtLink to="/">
+                <li>Blog</li>
+              </NuxtLink>
+              <NuxtLink to="/">
+                <li>Contact Us</li>
+              </NuxtLink>
+              <NuxtLink to="/">
+                <li>Sitemap</li>
+              </NuxtLink>
             </ul>
           </div>
         </div>
@@ -18,10 +26,18 @@
           <div class="footer-widget">
             <div class="footer-title">Collection</div>
             <ul class="list-unstyled">
-              <NuxtLink to="/products"><li>New arrivals</li></NuxtLink>
-              <NuxtLink to="/products"><li>Featured</li></NuxtLink>
-              <NuxtLink to="/products"><li>Catalog</li></NuxtLink>
-              <NuxtLink to="/products"><li>Brands</li></NuxtLink>
+              <NuxtLink to="/products">
+                <li>New arrivals</li>
+              </NuxtLink>
+              <NuxtLink to="/products">
+                <li>Featured</li>
+              </NuxtLink>
+              <NuxtLink to="/products">
+                <li>Catalog</li>
+              </NuxtLink>
+              <NuxtLink to="/products">
+                <li>Brands</li>
+              </NuxtLink>
             </ul>
           </div>
         </div>
@@ -30,10 +46,18 @@
           <div class="footer-widget">
             <div class="footer-title">Categories</div>
             <ul class="list-unstyled">
-              <NuxtLink to="/products"><li>Tables</li></NuxtLink>
-              <NuxtLink to="/products"><li>Lamps</li></NuxtLink>
-              <NuxtLink to="/products"><li>Chairs</li></NuxtLink>
-              <NuxtLink to="/products"><li>Sofas</li></NuxtLink>
+              <NuxtLink to="/products">
+                <li>Tables</li>
+              </NuxtLink>
+              <NuxtLink to="/products">
+                <li>Lamps</li>
+              </NuxtLink>
+              <NuxtLink to="/products">
+                <li>Chairs</li>
+              </NuxtLink>
+              <NuxtLink to="/products">
+                <li>Sofas</li>
+              </NuxtLink>
             </ul>
           </div>
         </div>
@@ -69,7 +93,7 @@
   </footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .footer_area {
   position: relative;
   z-index: 1;
@@ -86,13 +110,16 @@
   font-weight: bold;
 }
 
-.list-unstyled a {
-  text-decoration: none;
-}
+.list-unstyled {
+  a {
+    text-decoration: none;
 
-.list-unstyled a li {
-  color: #2c3e50;
-  margin-bottom: 10px;
+    li {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+  }
 }
 
 .social-info>img {
@@ -102,5 +129,4 @@
 .social-info>img:hover {
   opacity: 0.7;
 }
-
 </style>

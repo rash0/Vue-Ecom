@@ -166,7 +166,7 @@ export const useMainStore = defineStore("main", {
     // Info Component
     addtoInfo(n: number) {
       const selectedProduct = this.items.find((item) => item.id === n);
-      this.productInfo = selectedProduct || {} ;
+      this.productInfo = selectedProduct! ;
     },
   },
 });

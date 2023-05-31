@@ -21,20 +21,24 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .img-fluid {
   min-width: 800px !important;
 }
 
-ol.carousel-indicators li {
-  background-color: white;
-  height: 20px;
-  width: 20px;
-  border-radius: 30px;
-  border: 0.6px solid black;
-}
+ol {
+  .carousel-indicators {
+    li {
+      background-color: white;
+      height: 20px;
+      width: 20px;
+      border-radius: 30px;
+      border: 0.6px solid black;
 
-ol.carousel-indicators li.active {
-  background: #dbf0fa;
+      .active {
+        background: #dbf0fa;
+      }
+    }
+  }
 }
 </style>

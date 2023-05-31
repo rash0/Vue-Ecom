@@ -12,20 +12,20 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .breadcrumb {
   background: inherit !important;
   color: #2c3539 !important;
   font-size: 20px;
-}
 
-.breadcrumb>li>a {
-  text-decoration: none !important;
-  color: #2c3539 !important;
-}
+  li {
+    text-decoration: none !important;
+    color: #f2be00 !important;
+  }
 
-.breadcrumb>li {
-  text-decoration: none !important;
-  color: #f2be00 !important;
+  a {
+    text-decoration: none !important;
+    color: #2c3539 !important;
+  }
 }
 </style>

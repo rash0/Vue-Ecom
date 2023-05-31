@@ -30,22 +30,25 @@ defineProps<{
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .breadcrumb {
   background: inherit;
-}
 
-.breadcrumb>li>a {
-  text-decoration: none;
-  color: #2c3539 !important;
-  font-size: 18px;
-}
+  li {
+    a {
+      text-decoration: none;
+      color: #2c3539 !important;
+      font-size: 18px;
 
-.breadcrumb>li>a:hover {
-  text-decoration: underline;
-}
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 
-.breadcrumb-item.active {
-  text-decoration: none !important;
-  color: #f2be00 !important;
-}</style>
+  .active {
+    text-decoration: none !important;
+    color: #f2be00 !important;
+  }
+}
+</style>
