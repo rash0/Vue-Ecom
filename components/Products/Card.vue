@@ -2,11 +2,11 @@
   <div class="row justify-content-center text-center">
     <div v-for="item in cards" class="col-10 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
       <div class="card">
-        <img class="card-img-top" :src="useAsset(item.img)" alt="Card image cap">
+        <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card image cap">
         <div class="overlay">
           <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
           <NuxtLink :to="`/details/${item.id}`">
-            <button type="button" @click="store.addtoInfo(item.id)" class="btn btn-light btn-lg">Info</button>
+            <button type="button" @click="store.addtoInfo(item.id as number)" class="btn btn-light btn-lg">Info</button>
           </NuxtLink>
         </div>
         <div class="card-body">
@@ -19,16 +19,14 @@
 </template>
 
 <script setup lang="ts">
+import { Product } from '../types';
+
 
 const store = useMainStore()
 
+
 defineProps<{
-  cards: {
-    id: number,
-    img: string,
-    title: string,
-    price: number,
-  }[]
+  cards: Product[]
 }>()
 
 </script>

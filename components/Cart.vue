@@ -5,7 +5,7 @@
         <h3 class="text-center mt-4 pb-2">Cart</h3>
         <hr>
 
-        <div v-if="store.cartItems.length === 0" class="text-center font-italic">
+        <div v-if="!store.itemsNumber" class="text-center font-italic">
           Your cart is empty, try to Add stuff.
         </div>
 
@@ -21,12 +21,12 @@
             <span class="remove-btn" style="cursor: pointer;" @click="store.outCart(item.id)">remove</span>
           </div>
         </div>
-        <div v-if="store.cartItems.length">
+        <div v-if="store.itemsNumber">
           <hr>
           <div class="row align-items-center p-2" style="background:#7dcf85">
             <div class="col pl-3 pt-3">
               <h4>Subtotal</h4>
-              <p class="fs-6 px-3" style="color:#303E49;margin-top: -8px">{{ `(${store.cartItems.length} items)`
+              <p class="fs-6 px-3" style="color:#303E49;margin-top: -8px">{{ `(${store.itemsNumber} items)`
               }}
               </p>
             </div>

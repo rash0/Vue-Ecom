@@ -18,14 +18,10 @@
 </template>
 
 <script setup lang="ts">
-
-interface Details {
-  type: String,
-  title: String
-}
+import { Product } from '../types'
 
 defineProps<{
-  details: Details
+  details: Product
 }>()
 
 </script>

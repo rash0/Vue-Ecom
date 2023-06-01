@@ -2,15 +2,15 @@
   <div>
     <div class="row mb-5">
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-        <img class="img-fluid" :src="useAsset(details.img!)">
+        <img class="img-fluid" :src="useAsset(item.img!)">
       </div>
 
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex align-items-center justify-content-start">
         <div class="info pt-xl-0 pt-lg-0 pt-5">
           <span class="float-left pr-3">★★★★★</span>
           <h6 style="width:190px;">3 reviews</h6>
-          <h1 class="font-weight-bold text-uppercase pt-3">{{ details.title }}</h1>
-          <h4>${{ details.price }}</h4>
+          <h1 class="font-weight-bold text-uppercase pt-3">{{ item.title }}</h1>
+          <h4>${{ item.price }}</h4>
           <br><br><br>
           <div class="control number text-center">
             <button class="decrement-button" @click="decrememnt"
@@ -20,7 +20,7 @@
               style="border-left: 0.2px solid lightgrey;margin-left: 16px;">+</button>
             <br><br>
           </div>
-          <button class="add-to-cart-button" @click="addtoCart(details, details.id)">ADD TO CART</button>
+          <button class="add-to-cart-button" @click="addtoCart(item)">ADD TO CART</button>
         </div>
       </div>
     </div>
@@ -30,8 +30,10 @@
 <script setup lang="ts">
 import { Product } from '@/components/types'
 
+const store = useMainStore()
+
 defineProps<{
-  details: Product
+  item: Product
 }>()
 
 const quantity = ref(1)
@@ -39,13 +41,11 @@ const quantity = ref(1)
 const incrememnt = () => quantity.value < 9 ? quantity.value++ : 0
 const decrememnt = () => quantity.value > 1 ? quantity.value-- : 0
 
-function addtoCart(a: any, b: any) { }
-// const addtoCart = (it, id) =>  { // TODO looks strange,,check later
-//   for (var i = 0; i < quantity.value; i++) {
-//     store.inCart(it, id)
-//   }
-// }
-
+function addtoCart(item: object) {
+  for (var i = 0; i < quantity.value; i++) {
+    store.inCart(item)
+  }
+}
 </script>
 
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Product, State } from '@/components/types'
+import { State } from '@/components/types'
 
 export const useMainStore = defineStore("main", {
   state: (): State => ({
@@ -143,11 +143,6 @@ export const useMainStore = defineStore("main", {
     },
     // Info Component
     // TODO
-    // productDetails: ({ items }) => {
-    //   return (productId) => {
-    //     return items.find((item) => item.id === productId);
-    //   };
-    // },
     // infoLength: (state) => {
     //   if (state.infoPage.length > 0) {
     //     return state.infoPage.splice(0, 1);
