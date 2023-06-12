@@ -27,7 +27,6 @@ const grid = reactive({
 onMounted(() => reSet())
 const reSet = () => grid.cards = store.items;
 
-// TODO move this to getters at the store. instead of passing it as props for <Card />
 const slicedCards = computed(() => grid.cards.slice(0, grid.showCards))
 
 const sortItems = (value) => {

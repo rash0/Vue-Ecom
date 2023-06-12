@@ -141,13 +141,6 @@ export const useMainStore = defineStore("main", {
       }
       return cartItems[0].price;
     },
-    // Info Component
-    // TODO
-    // infoLength: (state) => {
-    //   if (state.infoPage.length > 0) {
-    //     return state.infoPage.splice(0, 1);
-    //   }
-    // },
   },
   actions: {
     // Cart Component
