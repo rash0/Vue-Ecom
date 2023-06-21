@@ -1,36 +1,27 @@
 <template>
-  <div>
-    <nav class="navbar">
-      <HeaderMobileMenu />
-      <div class="navbar-group">
-        <HeaderLogo />
-        <HeaderNavLinks />
-      </div>
-      <div class="navbar-group">
-        <HeaderSearchBar />
-        <div class="user">
-          <img data-bs-toggle="modal" data-bs-target="#userModal" width="25" height="25"
-            src="https://img.icons8.com/ultraviolet/40/gender-neutral-user.png" alt="gender-neutral-user" />
-        </div>
-        <HeaderCartButton @open="cartState" />
-      </div>
-    </nav>
-    <!--User Modal-->
-    <HeaderUserModal />
-    <!--Cart Component-->
-    <Cart :is-open="cart.state" @closeCart="cartState" />
-  </div>
+  <nav class="navbar">
+    <HeaderMobileMenu />
+    <div class="navbar-group">
+      <HeaderLogo />
+      <HeaderNavLinks />
+    </div>
+    <div class="navbar-group">
+      <HeaderSearchBar />
+      <HeaderProfile />
+      <HeaderCartButton @open="cartState" />
+    </div>
+  </nav>
+  <!--User Modal-->
+  <HeaderUserModal />
+  <!--Cart Component-->
+  <HeaderCart :is-open="cart" @closeCart="cartState" />
 </template>
 
 <script setup lang="ts">
 
-const cart = reactive({
-  state: false
-})
+const cart = ref(false)
 
-function cartState(): void {
-  cart.state = !cart.state
-}
+const cartState = () => cart.value = !cart.value;
 
 </script>
 

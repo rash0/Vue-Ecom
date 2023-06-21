@@ -10,14 +10,13 @@
         <ProductsMoreButton v-if="grid.cards.length !== 0" @increment-cards="grid.showCards += 6" />
       </div>
     </div>
-    <div v-else class="d-flex align-items-center justify-content-center">
+    <Notification v-else class="my-5 py-5">
       <h4>Sorry, we can't find any product with this features</h4>
-    </div>
+    </Notification>
   </div>
 </template>
 
 <script setup>
-
 const store = useMainStore()
 
 const grid = reactive({

@@ -4,6 +4,3 @@
     <HomeAboutUs />
   </div>
 </template>
-
-<script>
-</script>

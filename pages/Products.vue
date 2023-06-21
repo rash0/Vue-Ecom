@@ -1,9 +1,4 @@
 <template>
-    <div>
-        <ProductsBreadCrumbs />
-        <ProductsGrid />
-    </div>
+    <ProductsBreadCrumbs />
+    <ProductsGrid />
 </template>
-
-<script>
-</script>
