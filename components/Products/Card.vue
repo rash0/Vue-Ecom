@@ -2,7 +2,7 @@
   <div class="row justify-content-center text-center">
     <div v-for="item in cards" class="col-10 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
       <div class="card">
-        <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card image cap">
+        <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card-image-cap" title="Card-image-cap">
         <div class="overlay">
           <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
           <NuxtLink :to="`/details/${item.id}`">

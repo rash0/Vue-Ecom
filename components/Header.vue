@@ -1,23 +1,25 @@
 <template>
-  <nav class="navbar">
-    <HeaderMobileMenu />
-    <div class="navbar-group">
-      <HeaderLogo />
-      <HeaderNavLinks />
-    </div>
-    <div class="navbar-group">
-      <HeaderSearchBar />
-      <HeaderProfile />
-      <HeaderCartButton @open="cartState" />
-    </div>
-  </nav>
-  <!--User Modal-->
-  <HeaderUserModal />
-  <!--Cart Component-->
-  <HeaderCart :is-open="cart" @closeCart="cartState" />
+  <div>
+    <nav class="navbar">
+      <HeaderMobileMenu />
+      <div class="navbar-group">
+        <HeaderLogo />
+        <HeaderNavLinks />
+      </div>
+      <div class="navbar-group">
+        <HeaderSearchBar />
+        <HeaderProfile />
+        <HeaderCartButton @open="cartState" />
+      </div>
+    </nav>
+    <!--User Modal-->
+    <HeaderUserModal />
+    <!--Cart Component-->
+    <HeaderCart :is-open="cart" @closeCart="cartState" />
+  </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 
 const cart = ref(false)
 

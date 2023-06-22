@@ -82,10 +82,10 @@
         <div class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 text-right">
           <div class="social-info">
             <strong>Get social</strong>
-            <img class="twitter" src="@/assets/twitter.png">
-            <img class="pinterest" src="@/assets/pinterest.png">
-            <img class="facebook" src="@/assets/facebook.png">
-            <img class="instagram" src="@/assets/insta.png">
+            <img src="@/assets/twitter.png" alt="twitter-icon" title="twitter-icon">
+            <img src="@/assets/pinterest.png" alt="pinterest-icon" title="pinterest-icon">
+            <img src="@/assets/facebook.png" alt="facebook-icon" title="facebook-icon">
+            <img src="@/assets/insta.png" alt="instagram-icon" title="instagram-icon">
           </div>
         </div>
       </div>

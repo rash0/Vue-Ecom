@@ -1,6 +1,12 @@
 <template>
-  <div>
+  <main>
     <HomeCarousel />
     <HomeAboutUs />
-  </div>
+  </main>
 </template>
+
+<script setup>
+definePageMeta({
+  title: 'Home'
+})
+</script>

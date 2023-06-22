@@ -2,7 +2,7 @@
   <section class="about-us">
     <div class="row p-4">
       <div class="col-6">
-        <img class="float-lg-right" src="~/assets/new.jpg">
+        <img class="float-lg-right" src="~/assets/new.jpg" alt="home-img" title="home-img">
       </div>
       <div class="col-12 col-sm-6">
         <h1>New minimalist<br>–components</h1>
@@ -27,7 +27,7 @@
         </h6>
       </div>
       <div class="col-6">
-        <img src="~/assets/33.jpg">
+        <img src="~/assets/33.jpg" alt="home-img-2" title="home-img-2">
       </div>
     </div>
   </section>

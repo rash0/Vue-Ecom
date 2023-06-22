@@ -1,22 +1,26 @@
 <template>
   <div id="app">
+    <SeoKit />
     <Header />
     <slot />
-    <Newsletter v-if="$route.path != '/contact'" />
+    <Newsletter v-if="route.path != '/contact'" />
     <Footer />
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+const route = useRoute()
+
 useHead({
-  title: 'V-store',
+  title: 'V-Store',
   meta: [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { hid: 'description', name: 'description', content: 'A Full StoreFront template build with Nuxt3' }
+    { hid: 'description', name: 'description', content: 'A Full StoreFront built with Nuxt 3 + Pinia 2 + Bootstrap 5....' },
+    { property: 'og:title', content: `V-Store - ${route.meta.title}` }
   ],
   link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/fi.ico' }]
+    { rel: 'canonical', href: 'https://vue-ecom.vercel.app' },
+    { rel: 'icon', type: 'image/x-icon', href: '/fi.ico' }],
+  htmlAttrs: { lang: 'en-US' },
 })
 </script>
 

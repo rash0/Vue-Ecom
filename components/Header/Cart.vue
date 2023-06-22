@@ -1,21 +1,23 @@
 <template>
-  <div :class="['cart', cart.isOpen ? 'on' : '']">
-    <div class="cart-menu">
-      <h3 class="text-center mt-4 pb-2">Cart</h3>
-      <hr>
-      <Notification v-if="!store.itemsNumber">
-        Your cart is empty, try to Add stuff.
-      </Notification>
-      <div class="row" v-for="item in store.cartItems" :key="item.id">
-        <CartItem :item="item" />
-      </div>
-      <div v-if="store.itemsNumber">
+  <div>
+    <div :class="['cart', cart.isOpen ? 'on' : '']">
+      <div class="cart-menu">
+        <h3 class="text-center mt-4 pb-2">Cart</h3>
         <hr>
-        <CartTotal />
+        <Notification v-if="!store.itemsNumber">
+          Your cart is empty, try to Add stuff.
+        </Notification>
+        <div class="row" v-for="item in store.cartItems" :key="item.id">
+          <CartItem :item="item" />
+        </div>
+        <div v-if="store.itemsNumber">
+          <hr>
+          <CartTotal />
+        </div>
       </div>
     </div>
+    <div :class="['modal', cart.isOpen ? '' : 'off']" @click="$emit('closeCart')"></div>
   </div>
-  <div :class="['modal', cart.isOpen ? '' : 'off']" @click="$emit('closeCart')"></div>
 </template>
 
 <script setup>

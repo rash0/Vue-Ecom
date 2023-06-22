@@ -1,6 +1,6 @@
 <template>
     <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-        <img :src="useAsset(item.img!)" style="width: 90px;">
+        <img :src="useAsset(item.img!)" style="width: 90px;" alt="cart-item" title="cart-item">
     </div>
     <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
         <h4>{{ item.title }}</h4>
