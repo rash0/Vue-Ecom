@@ -9,16 +9,18 @@
 </template>
 
 <script setup>
+import useAsset from '~/composables/useAsset';
+
 const route = useRoute()
 
 useHead({
   title: 'V-Store',
   meta: [
-    { hid: 'description', name: 'description', content: 'A Full StoreFront built with Nuxt 3 + Pinia 2 + Bootstrap 5....' },
-    { property: 'og:title', content: `V-Store - ${route.meta.title}` }
+    { property: 'og:title', content: `V-Store - ${route.meta.title}` },
+    { property: 'og:image', content: useAsset('jum1.jpg') }
   ],
   link: [
-    { rel: 'canonical', href: 'https://vue-ecom.vercel.app' },
+    { rel: 'canonical', href: process.env.NUXT_PUBLIC_SITE_URL || "https://vue-ecom.vercel.app" },
     { rel: 'icon', type: 'image/x-icon', href: '/fi.ico' }],
   htmlAttrs: { lang: 'en-US' },
 })

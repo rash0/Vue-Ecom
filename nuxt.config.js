@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/devtools", "@pinia/nuxt"],
   extends: ["nuxt-seo-kit"],
+  routeRules: {
+    "/**": { robots: "index, follow" },
+  },
   runtimeConfig: {
     public: {
       siteUrl:

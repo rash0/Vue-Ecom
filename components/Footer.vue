@@ -64,10 +64,10 @@
 
         <div class="col-12 col-xl-6 col-lg-3 col-md-3 col-sm-12 text-left text-md-right pb-5">
           <div class="footer-widget">
-            <h4>399 Crowfield Road,</h4>
+            <h3>399 Crowfield Road,</h3>
             <h4>Phoenix, Arizona 85012</h4>
             <a href="mailto:#">asff@fdsfsdc.com</a>
-            <h6>+602-926-5809</h6>
+            <h5>+602-926-5809</h5>
           </div>
         </div>
 
@@ -82,10 +82,13 @@
         <div class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 text-right">
           <div class="social-info">
             <strong>Get social</strong>
-            <img src="@/assets/twitter.png" alt="twitter-icon" title="twitter-icon">
-            <img src="@/assets/pinterest.png" alt="pinterest-icon" title="pinterest-icon">
-            <img src="@/assets/facebook.png" alt="facebook-icon" title="facebook-icon">
-            <img src="@/assets/insta.png" alt="instagram-icon" title="instagram-icon">
+            <img width="35" height="25" loading="lazy" src="@/assets/twitter.png" alt="twitter-icon" title="twitter-icon">
+            <img width="35" height="25" loading="lazy" src="@/assets/pinterest.png" alt="pinterest-icon"
+              title="pinterest-icon">
+            <img width="35" height="25" loading="lazy" src="@/assets/facebook.png" alt="facebook-icon"
+              title="facebook-icon">
+            <img width="35" height="25" loading="lazy" src="@/assets/insta.png" alt="instagram-icon"
+              title="instagram-icon">
           </div>
         </div>
       </div>
@@ -128,5 +131,4 @@
 
 .social-info>img:hover {
   opacity: 0.7;
-}
-</style>
+}</style>

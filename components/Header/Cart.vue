@@ -2,7 +2,7 @@
   <div>
     <div :class="['cart', cart.isOpen ? 'on' : '']">
       <div class="cart-menu">
-        <h3 class="text-center mt-4 pb-2">Cart</h3>
+        <p class="text-center mt-4 pb-2 h3">Cart</p>
         <hr>
         <Notification v-if="!store.itemsNumber">
           Your cart is empty, try to Add stuff.
