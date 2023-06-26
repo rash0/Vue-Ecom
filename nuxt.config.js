@@ -30,4 +30,13 @@ export default defineNuxtConfig({
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
   },
   css: ["~/assets/styles/main.scss"],
+  render: {
+    csp: {
+      hashAlgorithm: "sha256",
+      policies: {
+        "script-src": ["'self'", "*.vercel-insights.com"],
+      },
+      addMeta: true,
+    },
+  },
 });
