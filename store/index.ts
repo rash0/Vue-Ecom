@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { State } from '@/components/types'
+import type { State } from '@/components/types'
 
 export const useMainStore = defineStore("main", {
   state: (): State => ({
@@ -65,18 +65,18 @@ export const useMainStore = defineStore("main", {
       {
         id: 7,
         img: "8.jpg",
-        title: "C-table",
+        title: "Square chair",
         price: 432,
-        color: "red",
-        type: "table",
+        color: "blue",
+        type: "chair",
       },
       {
         id: 8,
         img: "9.jpg",
-        title: "Coffee Table",
+        title: "Cone lamp",
         price: 390,
-        color: "white",
-        type: "table",
+        color: "silver",
+        type: "lamp",
       },
       {
         id: 9,
@@ -89,18 +89,18 @@ export const useMainStore = defineStore("main", {
       {
         id: 10,
         img: "11.jpg",
-        title: "Garden Chair",
+        title: "A - Lamp",
         price: 44,
-        color: "white",
-        type: "chair",
+        color: "black",
+        type: "lamp",
       },
       {
         id: 11,
         img: "12.jpg",
         title: "Novelty",
         price: 156,
-        color: "red",
-        type: "lamp",
+        color: "blue",
+        type: "chair",
       },
       {
         id: 12,
@@ -108,7 +108,7 @@ export const useMainStore = defineStore("main", {
         title: "Lava",
         price: 756,
         color: "blue",
-        type: "lamp",
+        type: "sofa",
       },
       {
         id: 13,
