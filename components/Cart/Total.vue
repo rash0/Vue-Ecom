@@ -12,6 +12,6 @@
     </div>
 </template>
 
-<script>
+<script setup>
 const store = useMainStore()
 </script>
