@@ -3,10 +3,12 @@
         <div class="card-selector">
             <div class="card-body p-5">
                 <div class="search-title">
-                    <h4>Catagories +</h4>
-                    <h6 v-for="item in info.types" :key="item.name" @click="" :value="item.value">
-                        {{ item.name }}
-                    </h6>
+                    <h4 class="mb-3">Catagories +</h4>
+                    <div class="form-check" v-for="item in info.types" :key="item.name" > 
+                        <input class="form-check-input" type="checkbox" v-model="typeFilters" :value="item.value" :id="`cat-${item.name}`">
+                        <label class="form-check-label" :for="`cat-${item.name}`"> {{ item.name }} </label>
+                    </div>
+                    <button type="button" class="mt-3 btn btn-primary" @click="typeFilters = []">Clear</button>                    
                 </div>
                 <div class="search-title">
                     <h4>Filter by +</h4>
@@ -26,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+import { reactive, ref, watch } from '#imports';
 
 const info = reactive({
     types: [
@@ -43,6 +46,15 @@ const info = reactive({
     ]
 })
 
+const typeFilters = ref([])
+
+const emit = defineEmits<{
+    (e: 'applyFilters', name: string): void,
+}>()
+
+watch(typeFilters, () => {
+    emit('applyFilters', typeFilters)
+})
 
 </script>
 <style scoped>

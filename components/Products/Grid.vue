@@ -4,7 +4,7 @@
       <ProductsDropDownFilters @sort-item="sortItems" />
     </div>
     <div v-if="grid.cards.length !== 0" class="main-grid d-flex p-3">
-      <ProductsFilterBar />
+      <ProductsFilterBar @apply-filters="filterItems"/>
       <div class="col-11 col-md-12 col-lg-8 mx-auto" style="margin-left:25px !important">
         <ProductsCard :cards="slicedCards" />
         <ProductsMoreButton v-if="grid.cards.length !== 0" @increment-cards="grid.showCards += 6" />
@@ -35,6 +35,11 @@ const sortItems = (value) => {
     if (value === 'trending') return (a.type.length - b.type.length);
   })
   return grid.sortButton = value.toUpperCase()
+}
+
+const filterItems = (filterList) => {
+  grid.cards = (filterList.value.length === 0) ? store.items : store.items.filter((card) => filterList.value.includes(card.type))
+  grid.showCards = 6
 }
 
 </script>
