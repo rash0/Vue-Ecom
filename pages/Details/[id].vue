@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { Product } from '~/components/types'
+import type { Product } from '~/components/types'
 const store = useMainStore()
 const route = useRoute()
 
