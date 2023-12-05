@@ -28,8 +28,8 @@ const grid: grid = reactive({
   cards: [],
   showCards: 6,
 })
-onMounted(() => reSet())
-const reSet = () => grid.cards = store.items;
+// onMounted(() => reSet())
+// const reSet = () => grid.cards = store.items;
 
 const slicedCards = computed(() => grid.cards.slice(0, grid.showCards))
 
