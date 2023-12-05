@@ -11,7 +11,7 @@ export const useMainStore = defineStore("main", {
         img: "1.jpg",
         title: "Cabriole",
         price: 156,
-        color: "yellow",
+        color: "white",
         type: "sofa",
       },
       {
@@ -27,7 +27,7 @@ export const useMainStore = defineStore("main", {
         img: "3.jpg",
         title: "Arm Chair",
         price: 362,
-        color: "yellow",
+        color: "blue",
         type: "chair",
       },
       {
@@ -35,7 +35,7 @@ export const useMainStore = defineStore("main", {
         img: "4.jpg",
         title: "Wing Chair",
         price: 505,
-        color: "red",
+        color: "silver",
         type: "chair",
       },
       {
@@ -43,7 +43,7 @@ export const useMainStore = defineStore("main", {
         img: "5.jpg",
         title: "Camel Back",
         price: 243,
-        color: "white",
+        color: "silver",
         type: "sofa",
       },
       {
@@ -51,8 +51,8 @@ export const useMainStore = defineStore("main", {
         img: "6.jpg",
         title: "Stool",
         price: 44,
-        color: "white",
-        type: "chair",
+        color: "silver",
+        type: "sofa",
       },
       {
         id: 6,
@@ -91,7 +91,7 @@ export const useMainStore = defineStore("main", {
         img: "11.jpg",
         title: "A - Lamp",
         price: 44,
-        color: "black",
+        color: "silver",
         type: "lamp",
       },
       {
@@ -115,7 +115,7 @@ export const useMainStore = defineStore("main", {
         img: "14.jpg",
         title: "Deck Chair",
         price: 756,
-        color: "white",
+        color: "silver",
         type: "chair",
       },
       {
