@@ -38,6 +38,10 @@
 import { reactive, ref, watch } from '#imports';
 import type { Filters } from '../types'
 
+const emit = defineEmits<{
+    (e: 'applyFilters', filters: Filters): void,
+}>()
+
 const info = reactive({
     types: [
         { name: 'Table', value: 'table' },
@@ -54,18 +58,36 @@ const info = reactive({
     ]
 })
 
-const typeFilters = ref([])
-const colorFilters = ref([])
+const typeFilters = ref<string[]>([])
+const colorFilters = ref<string[]>([])
 
-const emit = defineEmits<{
-    (e: 'applyFilters', filters: Filters): void,
-}>()
+const route = useRoute()
 
-watch(typeFilters, () => {
+// Can locationQueryValue be anything other than string(s)?
+if (route.query.types !== undefined) {
+    if (Array.isArray(route.query.types)) {
+        typeFilters.value = route.query.types as string[]
+    } else {
+        typeFilters.value.push(route.query.types as string)
+    }
+}
+if (route.query.colors !== undefined) {
+    if (Array.isArray(route.query.colors)) {
+        colorFilters.value = route.query.colors as string[]
+    } else {
+        colorFilters.value.push(route.query.colors as string)
+    }
+}
+
+watch([typeFilters, colorFilters], () => emitApplyFilters())
+
+const emitApplyFilters = () => {
+    const router = useRouter()
     emit('applyFilters', { types: typeFilters.value, colors: colorFilters.value } )
-})
+    router.push({ query: { types: typeFilters.value, colors: colorFilters.value } })
+}
 
-watch(colorFilters, () => {
+onMounted(()=>{
     emit('applyFilters', { types: typeFilters.value, colors: colorFilters.value } )
 })
 
