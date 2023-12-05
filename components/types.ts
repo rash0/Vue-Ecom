@@ -12,3 +12,8 @@ export interface State {
     cartItems: Product[],
     items: Product[],
   }
+
+export interface Filters {
+  types: string[],
+  colors: string[]
+}

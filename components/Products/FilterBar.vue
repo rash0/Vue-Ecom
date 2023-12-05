@@ -3,7 +3,7 @@
         <div class="card-selector">
             <div class="card-body p-5">
                 <div class="search-title">
-                    <h4 class="mb-3">Catagories +</h4>
+                    <h4 class="mb-3">Catagories</h4>
                     <div class="form-check" v-for="item in info.types" :key="item.name" > 
                         <input class="form-check-input" type="checkbox" v-model="typeFilters" :value="item.value" :id="`cat-${item.name}`">
                         <label class="form-check-label" :for="`cat-${item.name}`"> {{ item.name }} </label>
@@ -11,12 +11,19 @@
                     <button type="button" class="mt-3 btn btn-primary" @click="typeFilters = []">Clear</button>                    
                 </div>
                 <div class="search-title">
-                    <h4>Filter by +</h4>
-                    <div class="colors">
+                    <h4 class="mb-3">Colors</h4>
+                    <div class="form-check" v-for="item in info.colors" :key="item.name" > 
+                        <input class="form-check-input" type="checkbox" v-model="colorFilters" :value="item.value" :id="`cat-${item.name}`">
+                        <label class="form-check-label" :for="`cat-${item.name}`"> {{ item.name }} </label>
+                        <span class="circle" :style="`background-color:${item.colVal}`" ></span>
+                    </div>
+                    <button type="button" class="mt-3 btn btn-primary" @click="colorFilters = []">Clear</button>    
+
+                    <!-- <div class="colors">
                         <h5>Color</h5>
                         <span v-for="item in info.colors" :key="item.name" class="circle"
                             :style="`background-color:${item.value}`" @click="" :value="item.name"></span>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="search-title">
                     <h5>Price Range</h5>
@@ -29,6 +36,7 @@
 
 <script setup lang="ts">
 import { reactive, ref, watch } from '#imports';
+import type { Filters } from '../types'
 
 const info = reactive({
     types: [
@@ -39,21 +47,26 @@ const info = reactive({
     ],
     colors: [
         // TODO change the background colors to better and more subtle ones
-        { name: 'yellow', value: '#FFC015' },
-        { name: 'blue', value: '#829FAA' },
-        { name: 'white', value: '#BFB8AE' },
-        { name: 'silver', value: '#817A77' }
+        { name: 'yellow', value: 'yellow', colVal: '#FFC015' },
+        { name: 'blue', value: 'blue', colVal: '#829FAA' },
+        { name: 'white', value: 'white', colVal: '#BFB8AE' },
+        { name: 'silver', value: 'silver', colVal: '#817A77' }
     ]
 })
 
 const typeFilters = ref([])
+const colorFilters = ref([])
 
 const emit = defineEmits<{
-    (e: 'applyFilters', name: string): void,
+    (e: 'applyFilters', filters: Filters): void,
 }>()
 
 watch(typeFilters, () => {
-    emit('applyFilters', typeFilters)
+    emit('applyFilters', { types: typeFilters.value, colors: colorFilters.value } )
+})
+
+watch(colorFilters, () => {
+    emit('applyFilters', { types: typeFilters.value, colors: colorFilters.value } )
 })
 
 </script>
