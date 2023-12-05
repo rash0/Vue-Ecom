@@ -9,7 +9,7 @@
         <ProductsCard :cards="slicedCards" />
         <ProductsMoreButton v-if="grid.cards.length !== 0" @increment-cards="grid.showCards += 6" />
         <Notification v-else class="my-5 py-5">
-          <h4>Sorry, we can't find any product with this features</h4>
+          <h4>Sorry, we can't find any products that match your filters.</h4>
         </Notification>
       </div>
     </div>
