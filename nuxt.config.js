@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["store"],
   },
-  modules: ["@nuxt/devtools", "@pinia/nuxt"],
+  modules: ["@nuxt/devtools", "@pinia/nuxt", 'nuxt-primevue'],
   extends: ["nuxt-seo-kit"],
   routeRules: {
     "/**": { robots: "index, follow" },
@@ -28,8 +28,21 @@ export default defineNuxtConfig({
   plugins: [{ src: "~/plugins/vercel.ts", mode: "client" }],
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
+  },  
+  primevue: {
+    components: {
+        prefix: 'Prime',
+        include: ['Slider']    /* Used as <PrimeSlider /> */
+    }
   },
-  css: ["~/assets/styles/main.scss"],
+  css: [
+      "~/assets/styles/main.scss",
+      "primevue/resources/themes/lara-light-blue/theme.css",
+      "primeicons/primeicons.css"
+  ],
+  build: {
+    transpile: ["primevue"]
+  },
   render: {
     csp: {
       hashAlgorithm: "sha256",
