@@ -46,16 +46,16 @@ const sortItems = (value: string) => {
 }
 
 const filterItems = (filterList: Filters) => {
-  if (filterList.types.length + filterList.colors.length === 0) {
-    grid.cards = store.items
-  } else {
-    grid.cards = store.items.filter((card) => {
-      return  (
-        (filterList.types.includes(card.type||'') || filterList.types.length === 0) &&
-        (filterList.colors.includes(card.color||'') || filterList.colors.length === 0)
-      )
-    })
-  }
+  console.log(`filterItems ${filterList.minPrice} - ${filterList.maxPrice}`)
+
+  grid.cards = store.items.filter((card) => {
+    return  (
+      (filterList.types.includes(card.type||'') || filterList.types.length === 0) &&
+      (filterList.colors.includes(card.color||'') || filterList.colors.length === 0) &&
+      (((card.price || 0) > filterList.minPrice) && ((card.price || 0) < filterList.maxPrice))
+    )
+  })
+
 
   grid.showCards = 6
 }

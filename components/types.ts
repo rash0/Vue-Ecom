@@ -15,5 +15,7 @@ export interface State {
 
 export interface Filters {
   types: string[],
-  colors: string[]
+  colors: string[],
+  minPrice: number,
+  maxPrice: number
 }
