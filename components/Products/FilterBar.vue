@@ -18,16 +18,15 @@
                         <span class="circle" :style="`background-color:${item.colVal}`" ></span>
                     </div>
                     <button type="button" class="mt-3 btn btn-primary" @click="colorFilters = []">Clear</button>    
-
-                    <!-- <div class="colors">
-                        <h5>Color</h5>
-                        <span v-for="item in info.colors" :key="item.name" class="circle"
-                            :style="`background-color:${item.value}`" @click="" :value="item.name"></span>
-                    </div> -->
                 </div>
                 <div class="search-title">
-                    <h5>Price Range</h5>
-                    <input type="range" min="0" max="100" value="50" class="slider" />
+                    <h4 class="mb-3">Price Range</h4>
+                    <div class="d-flex justify-content-between mb-2">
+                        <label>${{ priceFilters[0] }}</label>
+                        <label>${{ priceFilters[1] }}</label>
+                    </div>
+                    <PrimeSlider v-model="priceFilters" range :min=min :max=max @slideend="doFiltering" />
+                    <button type="button" class="mt-3 btn btn-primary" @click="resetPriceFilters">Clear</button>    
                 </div>
             </div>
         </div>
@@ -60,7 +59,11 @@ const info = reactive({
 
 const typeFilters = ref<string[]>([])
 const colorFilters = ref<string[]>([])
+const min:number = 0
+const max:number = 1000
+const priceFilters = ref<number[]>([min, max])
 
+const router = useRouter()
 const route = useRoute()
 
 // Can locationQueryValue be anything other than string(s)?
@@ -78,30 +81,49 @@ if (route.query.colors !== undefined) {
         colorFilters.value.push(route.query.colors as string)
     }
 }
-
-watch([typeFilters, colorFilters], () => emitApplyFilters())
-
-const emitApplyFilters = () => {
-    const router = useRouter()
-    emit('applyFilters', { types: typeFilters.value, colors: colorFilters.value } )
-    router.push({ query: { types: typeFilters.value, colors: colorFilters.value } })
+if (route.query.minPrice !== undefined) {
+    priceFilters.value[0] = Number(route.query.minPrice)
+}
+if (route.query.maxPrice !== undefined) {
+    priceFilters.value[1] = Number(route.query.maxPrice)
 }
 
-onMounted(()=>{
-    emit('applyFilters', { types: typeFilters.value, colors: colorFilters.value } )
-})
+watch([typeFilters, colorFilters], () => doFiltering())
+
+const emitApplyFilters = () => emit('applyFilters', { types: typeFilters.value, colors: colorFilters.value, minPrice: priceFilters.value[0], maxPrice: priceFilters.value[1] } )
+
+const doFiltering = () => {
+    emitApplyFilters()
+    const filterQuery = { types: typeFilters.value, colors: colorFilters.value }
+    if (priceFilters.value[0] !== min) {
+        filterQuery.minPrice = priceFilters.value[0] // Can't get rid of this ts warning :/
+    }
+    if (priceFilters.value[1] !== max) {
+        filterQuery.maxPrice = priceFilters.value[1] // Can't get rid of this ts warning :/
+    }
+    router.push({ query: filterQuery })
+}
+
+const resetPriceFilters = () => {
+    priceFilters.value = [min,max]
+    emitApplyFilters()
+    router.push({ query: { types: typeFilters.value, colors: colorFilters.value }})
+}
+
+onMounted(()=> emitApplyFilters())
+
 
 </script>
 <style scoped>
 .card-selector {
     color: #DCDCDC;
-    height: 40rem;
+    /* height: 40rem; */
     background: #2c3539 !important;
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 26px 70px 0 rgba(0, 0, 0, 0.69);
 }
 
 .search-title {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .search-title h6 {
