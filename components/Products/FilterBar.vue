@@ -96,10 +96,12 @@ const doFiltering = () => {
     emitApplyFilters()
     const filterQuery = { types: typeFilters.value, colors: colorFilters.value }
     if (priceFilters.value[0] !== min) {
-        filterQuery.minPrice = priceFilters.value[0] // Can't get rid of this ts warning :/
+        // @ts-ignore 'Property does not exists' because we want to create it!
+        filterQuery.minPrice = priceFilters.value[0] 
     }
     if (priceFilters.value[1] !== max) {
-        filterQuery.maxPrice = priceFilters.value[1] // Can't get rid of this ts warning :/
+        // @ts-ignore 'Property does not exists' because we want to create it!
+        filterQuery.maxPrice = priceFilters.value[1]
     }
     router.push({ query: filterQuery })
 }
