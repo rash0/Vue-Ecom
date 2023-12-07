@@ -145,9 +145,9 @@ onMounted(()=> emitApplyFilters())
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 26px 70px 0 rgba(0, 0, 0, 0.69);
 }
 
-.search-title {
-    /* margin-bottom: 40px; */
-}
+/* .search-title {
+    margin-bottom: 40px;
+} */
 
 .search-title h6 {
     cursor: pointer;
