@@ -1,14 +1,13 @@
 <template>
-  <div class="container mb-4">
-    <div class="mx-3">
-      <ProductsDropDownFilters @sort-item="sortItems" />
-    </div>
-    <div class="main-grid d-flex p-3">
+  <ProductsBreadCrumbs />
+  <!-- <div class="container-flow mx-5 mb-4"> -->
+  <div class="container-md mb-4">
+    <div class="main-grid">
       <ProductsFilterBar @apply-filters="filterItems"/>
-      <div class="col-11 col-md-12 col-lg-8 mx-auto" style="margin-left:25px !important">
+      <div class="products">
         <ProductsCard :cards="slicedCards" />
-        <ProductsMoreButton v-if="grid.cards.length !== 0" @increment-cards="grid.showCards += 6" />
-        <Notification v-else class="my-5 py-5">
+        <ProductsMoreButton v-if="slicedCards.length < grid.cards.length" @increment-cards="grid.showCards += 10" />
+        <Notification v-if="slicedCards.length == 0" class="my-5 py-5">
           <h4>Sorry, we can't find any products that match your filters.</h4>
         </Notification>
       </div>
@@ -26,7 +25,7 @@ interface grid {
 const store = useMainStore()
 const grid: grid = reactive({
   cards: [],
-  showCards: 6,
+  showCards: 10,
 })
 // onMounted(() => reSet())
 // const reSet = () => grid.cards = store.items;
@@ -54,8 +53,32 @@ const filterItems = (filterList: Filters) => {
     )
   })
 
-
-  grid.showCards = 6
+  grid.showCards = 10
 }
 
 </script>
+
+<style>
+
+.main-grid {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+      /* justify-content: center; */
+}
+
+.products {
+    /* --minChildWidth: 225px; */
+    --minChildWidth: 300px;
+    display: grid;
+    gap:1rem;
+    grid-template-columns: 
+        repeat(auto-fit,
+        minmax(min(var(--minChildWidth),100%),
+               1fr));
+    flex-grow: 9999;
+    flex-basis: var(--minChildWidth);
+}
+
+</style>

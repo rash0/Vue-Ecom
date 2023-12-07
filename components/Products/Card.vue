@@ -1,19 +1,18 @@
 <template>
-  <div class="row justify-content-center text-center">
-    <div v-for="item in cards" class="col-10 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="item.id">
-      <div class="card">
-        <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card-image-cap" title="Card-image-cap"
-          loading="lazy">
-        <div class="overlay">
-          <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
-          <NuxtLink :to="`/details/${item.id}`">
-            <button type="button" @click="store.addtoInfo(item.id as number)" class="btn btn-light btn-lg">Info</button>
-          </NuxtLink>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
-          <p class="card-text">${{ item.price }}</p>
-        </div>
+    <!-- justify-content-center -->
+  <div v-for="item in cards" :key="item.id" class="d-flex" >
+    <div class="card">
+      <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card-image-cap" title="Card-image-cap"
+        loading="lazy">
+      <div class="overlay">
+        <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
+        <NuxtLink :to="`/details/${item.id}`">
+          <button type="button" @click="store.addtoInfo(item.id as number)" class="btn btn-light btn-lg">Info</button>
+        </NuxtLink>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">${{ item.price }}</p>
       </div>
     </div>
   </div>
@@ -38,6 +37,7 @@ defineProps<{
   transition: 300ms;
   position: relative;
   overflow: hidden;
+//   max-width: 400px;
 
   img {
     z-index: 1;
