@@ -1,33 +1,53 @@
 <template>
     <div class="col-3 d-none d-lg-block d-xl-block">
         <div class="card-selector">
-            <div class="card-body p-5">
-                <div class="search-title">
-                    <h4 class="mb-3">Catagories</h4>
+            <div class="card-body p-2">
+                <PrimePanel toggleable class="p-2">
+                    <template #header>
+                        <h4 class="mb-3">Catagories</h4>
+                    </template>
                     <div class="form-check" v-for="item in info.types" :key="item.name" > 
                         <input class="form-check-input" type="checkbox" v-model="typeFilters" :value="item.value" :id="`cat-${item.name}`">
                         <label class="form-check-label" :for="`cat-${item.name}`"> {{ item.name }} </label>
                     </div>
-                    <button type="button" class="mt-3 btn btn-primary" @click="typeFilters = []">Clear</button>                    
-                </div>
-                <div class="search-title">
-                    <h4 class="mb-3">Colors</h4>
+                    <template #footer>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary" @click="typeFilters = []">Clear</button>
+                        </div>
+                    </template>
+                </PrimePanel>
+
+                <PrimePanel toggleable collapsed class="p-2">
+                    <template #header>
+                        <h4 class="mb-3">Colors</h4>
+                    </template>
                     <div class="form-check" v-for="item in info.colors" :key="item.name" > 
                         <input class="form-check-input" type="checkbox" v-model="colorFilters" :value="item.value" :id="`cat-${item.name}`">
                         <label class="form-check-label" :for="`cat-${item.name}`"> {{ item.name }} </label>
                         <span class="circle" :style="`background-color:${item.colVal}`" ></span>
                     </div>
-                    <button type="button" class="mt-3 btn btn-primary" @click="colorFilters = []">Clear</button>    
-                </div>
-                <div class="search-title">
-                    <h4 class="mb-3">Price Range</h4>
+                    <template #footer>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary" @click="colorFilters = []">Clear</button>
+                        </div>
+                    </template>   
+                </PrimePanel>
+                
+                <PrimePanel toggleable collapsed class="p-2">
+                    <template #header>
+                        <h4 class="mb-3">Price</h4>
+                    </template>
                     <div class="d-flex justify-content-between mb-2">
                         <label>${{ priceFilters[0] }}</label>
                         <label>${{ priceFilters[1] }}</label>
                     </div>
                     <PrimeSlider v-model="priceFilters" range :min=min :max=max @slideend="doFiltering" />
-                    <button type="button" class="mt-3 btn btn-primary" @click="resetPriceFilters">Clear</button>    
-                </div>
+                    <template #footer>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary" @click="resetPriceFilters">Clear</button>
+                        </div>
+                    </template>
+                </PrimePanel>
             </div>
         </div>
     </div>
@@ -120,12 +140,13 @@ onMounted(()=> emitApplyFilters())
 .card-selector {
     color: #DCDCDC;
     /* height: 40rem; */
-    background: #2c3539 !important;
+    /* background: lightgray !important;
+    background: #F8F8F8 !important; */
     box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 26px 70px 0 rgba(0, 0, 0, 0.69);
 }
 
 .search-title {
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
 }
 
 .search-title h6 {
