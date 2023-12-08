@@ -36,7 +36,7 @@ nav {
   position: sticky;
   top: 0;
   align-self: flex-start;
-  z-index: 10;
+  z-index: 100;
 }
 
 .navbar {

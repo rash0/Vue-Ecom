@@ -2,8 +2,9 @@
   <ProductsBreadCrumbs />
   <!-- <div class="container-flow mx-5 mb-4"> -->
   <div class="container-md mb-4">
+    <ProductsDropDownFilters class="drop-downs" @sort-item="sortItems" @toggle-filters="toggleFilters"/>
     <div class="main-grid">
-      <ProductsFilterBar @apply-filters="filterItems"/>
+      <ProductsFilterBar :class="{'d-none':filtersVisible}" @apply-filters="filterItems"/>
       <div class="products">
         <ProductsCard :cards="slicedCards" />
         <ProductsMoreButton v-if="slicedCards.length < grid.cards.length" @increment-cards="grid.showCards += 10" />
@@ -33,8 +34,9 @@ const grid: grid = reactive({
 const slicedCards = computed(() => grid.cards.slice(0, grid.showCards))
 
 const sortItems = (value: string) => {
+  console.log(value)
   grid.cards.sort((a, b) => {
-    if (value === 'newset') return (a.title === undefined || b.title === undefined) ? 0 : (a.title.length  * 2) - (b.title.length * 4)
+    if (value === 'newest') return (a.title === undefined || b.title === undefined) ? 0 : (a.title.length  * 2) - (b.title.length * 4)
     if (value === 'price') return (a.price === undefined || b.price === undefined) ? 0 :(a.price - b.price)
     if (value === 'trending') return (a.type === undefined || b.type === undefined) ? 0 :(a.type.length - b.type.length)
     return 0
@@ -43,9 +45,7 @@ const sortItems = (value: string) => {
 }
 
 const filterItems = (filterList: Filters) => {
-  console.log(`filterItems ${filterList.minPrice} - ${filterList.maxPrice}`)
-
-  grid.cards = store.items.filter((card) => {
+   grid.cards = store.items.filter((card) => {
     return  (
       (filterList.types.includes(card.type||'') || filterList.types.length === 0) &&
       (filterList.colors.includes(card.color||'') || filterList.colors.length === 0) &&
@@ -54,6 +54,11 @@ const filterItems = (filterList: Filters) => {
   })
 
   grid.showCards = 10
+}
+
+const filtersVisible = ref(false)
+const toggleFilters = (value: string) => {
+  filtersVisible.value = (value === 'HIDDEN') ? true : false
 }
 
 </script>
@@ -73,10 +78,11 @@ const filterItems = (filterList: Filters) => {
     --minChildWidth: 300px;
     display: grid;
     gap:1rem;
-    grid-template-columns: 
+    /* grid-template-columns: 
         repeat(auto-fit,
         minmax(min(var(--minChildWidth),100%),
-               1fr));
+               1fr)); */
+    grid-template-columns: repeat(1, 1fr);
     flex-grow: 9999;
     flex-basis: var(--minChildWidth);
 }
