@@ -35,12 +35,17 @@ const grid: grid = reactive({
 
 const slicedCards = computed(() => grid.cards.slice(0, grid.showCards))
 
+const currentSort = ref('title');
 const sortItems = (value: string) => {
-  console.log(value)
+  currentSort.value = value
   grid.cards.sort((a, b) => {
     if (value === 'newest') return (a.title === undefined || b.title === undefined) ? 0 : (a.title.length  * 2) - (b.title.length * 4)
     if (value === 'price') return (a.price === undefined || b.price === undefined) ? 0 :(a.price - b.price)
-    if (value === 'trending') return (a.type === undefined || b.type === undefined) ? 0 :(a.type.length - b.type.length)
+    if (value === 'title') {
+      if (a.title === undefined || b.title === undefined) return 0
+      if (a.title < b.title) return -1
+      if (a.title > b.title) return 1
+    }
     return 0
   })
   // return grid.sortButton = value.toUpperCase()
@@ -56,6 +61,7 @@ const filterItems = (filterList: Filters) => {
   })
 
   grid.showCards = 10
+  sortItems(currentSort.value)
 }
 
 const filtersVisible = ref(false)
@@ -71,7 +77,7 @@ const toggleFilters = (value: string) => {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 1rem;
+  /* gap: 1rem; */
       /* justify-content: center; */
 }
 
