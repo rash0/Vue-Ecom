@@ -3,7 +3,7 @@
         <button class="btn btn-light" role="button" @click="toggleFilters">
             <span style="color:#f2be00;">{{ (filtersVisible === 'SHOWN')?'HIDE FILTERS' :'SHOW FILTERS' }}</span>
         </button>
-        <div class="dropdown px-4 px-sm-0">
+        <div class="dropdown">
             <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">SORT BY
                 <span style="color:#f2be00;">{{ sort }}</span>
@@ -11,7 +11,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" @click="sortBy('newest')" value="newest">Newest</a>
                 <a class="dropdown-item" @click="sortBy('price')" value="price">Price</a>
-                <a class="dropdown-item" @click="sortBy('trending')" value="trending">Trending</a>
+                <a class="dropdown-item" @click="sortBy('title')" value="title">Title [A-Z]</a>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 
-const sort = ref('DEFAULT')
+const sort = ref('TITLE')
 const filtersVisible = ref('SHOWN')
 
 const toggleFilters = () => {
@@ -52,6 +52,7 @@ function sortBy(value: string): void {
     background: white;
     border-radius: 0 !important;
     border: 1px solid grey !important;
+    min-width: max-content;
 }
 
 .dropdown-menu {
@@ -62,5 +63,12 @@ function sortBy(value: string): void {
 .dropdown-menu>a:hover {
     background-color: #dae0e5;
     cursor: pointer;
+}
+
+/* Bodge so that menu appears over filter */
+@media screen and (max-width: 720px) {
+  .d-flex {
+    z-index: 100;
+  }
 }
 </style>
