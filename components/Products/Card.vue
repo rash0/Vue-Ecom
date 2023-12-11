@@ -1,7 +1,6 @@
 <template>
-    <!-- justify-content-center -->
-  <div class="d-flex flex-wrap justify-content-center" >
-    <div v-for="item in cards" :key="item.id" class="card">
+  <div class="d-flex flex-wrap gap-3 justify-content-left pt-1">
+    <div v-for="item in cards" :key="item.id" class="card" :class="{'wide-container' : widthIsWide}">
       <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card-image-cap" title="Card-image-cap"
         loading="lazy">
       <div class="overlay">
@@ -23,24 +22,19 @@ import type { Product } from '../types'
 
 const store = useMainStore()
 
-defineProps<{
-  cards: Product[]
+const props = defineProps<{
+  cards: Product[],
+  widthIsWide: boolean
 }>()
 
 </script>
 
 <style lang="scss">
 
-.d-flex {
-  gap:20px;
-}
-
-/* Card Style */
 .card {
   transition: 300ms;
   position: relative;
   overflow: hidden;
-  min-width: 250px;
   max-width: 300px;
 
   img {
@@ -79,5 +73,9 @@ defineProps<{
     transform: scaleY(1.02) scaleX(1.02);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 0px 40px rgba(0, 0, 0, 0.22);
   }
+}
+
+.wide-container {
+  max-width: 600px;
 }
 </style>

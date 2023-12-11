@@ -1,7 +1,7 @@
 <template>
-    <div class="card-selector">
+    <div class="card-selector pt-1">
    
-        <PrimePanel toggleable class="p-2">
+        <PrimePanel toggleable class="pb-2">
             <template #header>
                 <h5>Catagories</h5>
             </template>
@@ -16,7 +16,7 @@
             </template>
         </PrimePanel>
 
-        <PrimePanel toggleable collapsed class="p-2">
+        <PrimePanel toggleable collapsed class="pb-2">
             <template #header>
                 <h5>Colors</h5>
             </template>
@@ -32,7 +32,7 @@
             </template>
         </PrimePanel>
         
-        <PrimePanel toggleable collapsed class="p-2">
+        <PrimePanel toggleable collapsed class="pb-2">
             <template #header>
                 <h5>Price</h5>
             </template>
@@ -138,19 +138,18 @@ onMounted(()=> emitApplyFilters())
 .card-selector {
     color: #DCDCDC;
     /* height: 40rem; */
-    background: lightgray !important;
+    /* background: lightgray !important; */
     background: #F8F8F8 !important;
     /* box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 26px 70px 0 rgba(0, 0, 0, 0.69); */
-    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.1), 0 13px 35px 0 rgba(0, 0, 0, 0.69);
+    /* box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.1), 0 13px 35px 0 rgba(0, 0, 0, 0.69); */
     flex-basis: 250px;
     flex-grow: 1;
 
     position: sticky;
-    /* top: 56px; */
     top: 125px;
     align-self: start;
     z-index: 90;
-    border-radius: var(--bs-border-radius);
+    
 }
 .search-title h6 {
     cursor: pointer;
