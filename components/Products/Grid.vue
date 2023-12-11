@@ -1,12 +1,12 @@
 <template>
   <ProductsBreadCrumbs />
-  <!-- <div class="container-flow mx-5 mb-4"> -->
-  <div class="container-md mb-4">
+  <div class="container-flow mx-5 mb-4">
+  <!-- <div class="container-md mb-4"> -->
     <ProductsDropDownFilters class="drop-downs" @sort-item="sortItems" @toggle-filters="toggleFilters"/>
     <div class="main-grid">
-      <ProductsFilterBar :class="{'d-none':filtersVisible}" @apply-filters="filterItems"/>
+      <ProductsFilterBar ref="filter" :class="{'d-none':filtersVisible, unstick:filterIsWide, 'me-3':!filterIsWide}" @apply-filters="filterItems"/>
       <div class="products">
-        <ProductsCard :cards="slicedCards" />
+        <ProductsCard :cards="slicedCards" :width-is-wide="filterIsWide"/>
         <ProductsMoreButton v-if="slicedCards.length < grid.cards.length" @increment-cards="grid.showCards += 10" />
         <Notification v-if="slicedCards.length == 0" class="my-5 py-5">
           <h4>Sorry, we can't find any products that match your filters.</h4>
@@ -30,8 +30,17 @@ const grid: grid = reactive({
   cards: [],
   showCards: 10,
 })
-// onMounted(() => reSet())
-// const reSet = () => grid.cards = store.items;
+
+const filter = ref()
+const filterIsWide = ref(false)
+
+onMounted(()=>{
+  const resizeObserver = new ResizeObserver((entries) => {
+    console.log(entries[0].target.clientWidth)
+    filterIsWide.value = (entries[0].target.clientWidth > 300) ? true : false 
+  })
+  resizeObserver.observe(filter.value.$el);
+})
 
 const slicedCards = computed(() => grid.cards.slice(0, grid.showCards))
 
@@ -77,12 +86,9 @@ const toggleFilters = (value: string) => {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  /* gap: 1rem; */
-      /* justify-content: center; */
 }
 
 .products {
-    /* --minChildWidth: 225px; */
     --minChildWidth: 300px;
     display: grid;
     gap:1rem;
@@ -90,9 +96,13 @@ const toggleFilters = (value: string) => {
         repeat(auto-fit,
         minmax(min(var(--minChildWidth),100%),
                1fr)); */
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     flex-grow: 9999;
     flex-basis: var(--minChildWidth);
+}
+
+.unstick {
+  position: static !important;
 }
 
 </style>

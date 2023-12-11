@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-center p-3">
+    <div  class="d-flex justify-content-center p-3">
         <button class="btn btn-light" role="button" @click="toggleFilters">
             <span style="color:#f2be00;">{{ (filtersVisible === 'SHOWN')?'HIDE FILTERS' :'SHOW FILTERS' }}</span>
         </button>
@@ -11,7 +11,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" @click="sortBy('newest')" value="newest">Newest</a>
                 <a class="dropdown-item" @click="sortBy('price')" value="price">Price</a>
-                <a class="dropdown-item" @click="sortBy('title')" value="title">Title [A-Z]</a>
+                <a class="dropdown-item" @click="sortBy('title')" value="title">Title</a>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@ function sortBy(value: string): void {
 
 <style scoped>
 .d-flex {
-  z-index: 80;
+  z-index: 95;
   position: sticky;
   top: 56px;
   align-self: start;
@@ -64,12 +64,5 @@ function sortBy(value: string): void {
 .dropdown-menu>a:hover {
     background-color: #dae0e5;
     cursor: pointer;
-}
-
-/* Bodge so that menu appears over filter */
-@media screen and (max-width: 720px) {
-  .d-flex {
-    z-index: 100;
-  }
 }
 </style>
