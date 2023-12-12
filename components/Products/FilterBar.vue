@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 
-import { reactive, ref, watch } from '#imports';
+import { onMounted, reactive, ref, useRoute, useRouter, watch } from '#imports';
 import type { Filters } from '../types'
 
 const emit = defineEmits<{
