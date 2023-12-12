@@ -3,12 +3,12 @@
   <div class="container-flow mx-5 mb-4">
   <!-- <div class="container-md mb-4"> -->
     <ProductsDropDownFilters class="drop-downs" @sort-item="sortItems" @toggle-filters="toggleFilters"/>
-    <div class="main-grid">
-      <ProductsFilterBar ref="filter" :class="{'d-none':filtersVisible, unstick:filterIsWide, 'me-3':!filterIsWide}" @apply-filters="filterItems"/>
+    <div class="products-with-sidebar">
+      <ProductsFilterBar ref="filter" :class="{'d-none':filtersVisible, unstick:filterIsWide}" @apply-filters="filterItems"/>
       <div class="products">
-        <ProductsCard :cards="slicedCards" :width-is-wide="filterIsWide"/>
-        <ProductsMoreButton v-if="slicedCards.length < grid.cards.length" @increment-cards="grid.showCards += 10" />
-        <Notification v-if="slicedCards.length == 0" class="my-5 py-5">
+        <ProductsCard :cards="slicedCards" :filter-is-wide="filterIsWide" class="mb-3"/>
+        <ProductsMoreButton v-if="slicedCards.length < grid.cards.length" @increment-cards="grid.showCards += 10" :class="{'ms-3':!filterIsWide}"/>
+        <Notification v-if="slicedCards.length == 0" class="my-5 ms-3 py-5">
           <h4>Sorry, we can't find any products that match your filters.</h4>
         </Notification>
       </div>
@@ -37,7 +37,7 @@ const filterIsWide = ref(false)
 onMounted(()=>{
   const resizeObserver = new ResizeObserver((entries) => {
     console.log(entries[0].target.clientWidth)
-    filterIsWide.value = (entries[0].target.clientWidth > 300) ? true : false 
+    filterIsWide.value = ((entries[0].target.clientWidth > 255)||(entries[0].target.clientWidth === 0)) ? true : false 
   })
   resizeObserver.observe(filter.value.$el);
 })
@@ -57,7 +57,6 @@ const sortItems = (value: string) => {
     }
     return 0
   })
-  // return grid.sortButton = value.toUpperCase()
 }
 
 const filterItems = (filterList: Filters) => {
@@ -82,7 +81,7 @@ const toggleFilters = (value: string) => {
 
 <style>
 
-.main-grid {
+.products-with-sidebar {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -90,13 +89,6 @@ const toggleFilters = (value: string) => {
 
 .products {
     --minChildWidth: 300px;
-    display: grid;
-    gap:1rem;
-    /* grid-template-columns: 
-        repeat(auto-fit,
-        minmax(min(var(--minChildWidth),100%),
-               1fr)); */
-    grid-template-columns: 1fr;
     flex-grow: 9999;
     flex-basis: var(--minChildWidth);
 }

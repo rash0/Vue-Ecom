@@ -1,5 +1,5 @@
 <template>
-    <div class="card-selector pt-1">
+    <div class="card-selector pt-1 mb-3">
    
         <PrimePanel toggleable class="pb-2">
             <template #header>
@@ -141,7 +141,6 @@ onMounted(()=> emitApplyFilters())
     /* background: lightgray !important; */
     background: #F8F8F8 !important;
     /* box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 26px 70px 0 rgba(0, 0, 0, 0.69); */
-    /* box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.1), 0 13px 35px 0 rgba(0, 0, 0, 0.69); */
     flex-basis: 250px;
     flex-grow: 1;
 

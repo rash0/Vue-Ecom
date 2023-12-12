@@ -1,5 +1,5 @@
 <template>
-    <div  class="d-flex justify-content-center p-3">
+    <div  class="d-flex justify-content-between gap-3 py-3 mb-3">
         <button class="btn btn-light" role="button" @click="toggleFilters">
             <span style="color:#f2be00;">{{ (filtersVisible === 'SHOWN')?'HIDE FILTERS' :'SHOW FILTERS' }}</span>
         </button>
@@ -8,11 +8,11 @@
                 aria-haspopup="true" aria-expanded="false">SORT BY
                 <span style="color:#f2be00;">{{ sort }}</span>
             </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" @click="sortBy('newest')" value="newest">Newest</a>
-                <a class="dropdown-item" @click="sortBy('price')" value="price">Price</a>
-                <a class="dropdown-item" @click="sortBy('title')" value="title">Title</a>
-            </div>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" @click="sortBy('newest')" value="newest">Newest</a></li>
+                <li><a class="dropdown-item" @click="sortBy('price')" value="price">Price</a></li>
+                <li><a class="dropdown-item" @click="sortBy('title')" value="title">Title</a></li>
+            </ul>
         </div>
     </div>
 </template>
@@ -56,13 +56,7 @@ function sortBy(value: string): void {
     min-width: max-content;
 }
 
-.dropdown-menu {
-    background-color: #F8F8F8 !important;
-    color: #2c3539 !important;
-}
-
-.dropdown-menu>a:hover {
-    background-color: #dae0e5;
+.dropdown-menu>li:hover {
     cursor: pointer;
 }
 </style>
