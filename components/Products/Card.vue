@@ -20,8 +20,9 @@
 </template>
 
 <script setup lang="ts">
+import { useMainStore } from '~/store';
 import type { Product } from '../types';
-
+import { useAsset } from '#imports';
 
 const store = useMainStore()
 

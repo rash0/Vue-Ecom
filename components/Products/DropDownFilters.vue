@@ -31,6 +31,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'nuxt/dist/app/compat/capi';
 
 const sort = ref('DEFAULT')
 
