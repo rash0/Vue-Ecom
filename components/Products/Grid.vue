@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { useMainStore } from '~/store';
 import type { Product, Filters } from '../types';
-import { reactive, onMounted, computed } from 'nuxt/dist/app/compat/capi';
+import { reactive, onMounted, computed, ref } from '#imports';
 interface grid {
   cards: Product[],
   showCards: number

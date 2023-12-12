@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'nuxt/dist/app/compat/capi';
+import { ref } from '#imports';
 
 const sort = ref('TITLE')
 const filtersVisible = ref('SHOWN')
