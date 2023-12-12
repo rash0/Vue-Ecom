@@ -29,8 +29,6 @@ const props = defineProps<{
   filterIsWide: boolean
 }>()
 
-const touch = matchMedia('(hover: none)').matches;
-
 </script>
 
 <style lang="scss">
@@ -46,16 +44,6 @@ const touch = matchMedia('(hover: none)').matches;
     flex-basis: var(--minChildWidth);
 }
 
-.products-grid {
-    --minChildWidth: 200px;
-    display: grid;
-    grid-template-columns: 
-        repeat(auto-fit,
-        minmax(min(var(--minChildWidth),100%),
-               1fr));
-    flex-grow: 9999;
-    flex-basis: var(--minChildWidth);
-}
 .card {
   transition: 300ms;
   position: relative;
@@ -66,7 +54,6 @@ const touch = matchMedia('(hover: none)').matches;
   }
 
   button {
-    width: 7rem;
     width: 7rem;
     margin-bottom: 10px;
     border: solid;
@@ -80,7 +67,6 @@ const touch = matchMedia('(hover: none)').matches;
 
   &:hover .overlay {
     opacity: 0.8;
-    opacity: 0.8;
   }
 
   .overlay {
@@ -92,7 +78,6 @@ const touch = matchMedia('(hover: none)').matches;
     width: 100%;
     height: 70%;
     opacity: 0;
-    z-index: 50;
     z-index: 50;
     transition: all 0.3s ease-in;
   }
