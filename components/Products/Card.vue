@@ -12,6 +12,19 @@
       <div class="card-body">
         <h5 class="card-title">{{ item.title }}</h5>
         <p class="card-text">${{ item.price }}</p>
+  <div class="products-grid pt-1 gap-3" :class="{'ms-3':!filterIsWide}">
+    <div v-for="item in cards" :key="item.id" class="card">
+      <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card-image-cap" title="Card-image-cap"
+        loading="lazy">
+      <div class="overlay">
+        <button type="button" class="btn btn-light btn-lg" @click="store.inCart(item)">Add +</button>
+        <NuxtLink :to="`/details/${item.id}`">
+          <button type="button" @click="store.addtoInfo(item.id as number)" class="btn btn-light btn-lg">Info</button>
+        </NuxtLink>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">${{ item.price }}</p>
       </div>
     </div>
   </div>
@@ -27,13 +40,29 @@ const store = useMainStore()
 const props = defineProps<{
   cards: Product[],
   filterIsWide: boolean
+const props = defineProps<{
+  cards: Product[],
+  filterIsWide: boolean
 }>()
+
+const touch = matchMedia('(hover: none)').matches;
 
 const touch = matchMedia('(hover: none)').matches;
 
 </script>
 
 <style lang="scss">
+
+.products-grid {
+    --minChildWidth: 200px;
+    display: grid;
+    grid-template-columns: 
+        repeat(auto-fit,
+        minmax(min(var(--minChildWidth),100%),
+               1fr));
+    flex-grow: 9999;
+    flex-basis: var(--minChildWidth);
+}
 
 .products-grid {
     --minChildWidth: 200px;
@@ -56,6 +85,7 @@ const touch = matchMedia('(hover: none)').matches;
 
   button {
     width: 7rem;
+    width: 7rem;
     margin-bottom: 10px;
     border: solid;
     border-width: 1px;
@@ -67,6 +97,7 @@ const touch = matchMedia('(hover: none)').matches;
   }
 
   &:hover .overlay {
+    opacity: 0.8;
     opacity: 0.8;
   }
 
@@ -80,6 +111,7 @@ const touch = matchMedia('(hover: none)').matches;
     height: 70%;
     opacity: 0;
     z-index: 50;
+    z-index: 50;
     transition: all 0.3s ease-in;
   }
 
@@ -87,6 +119,15 @@ const touch = matchMedia('(hover: none)').matches;
   &:active {
     transform: scaleY(1.02) scaleX(1.02);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 0px 40px rgba(0, 0, 0, 0.22);
+  }
+}
+
+@media (hover: none){
+    /* touch stuff goes here */
+    .overlay {
+      opacity: 0.6 !important;
+      background-color: rgba(0, 0, 0, 0) !important; /* Adjust the alpha value for transparency */
+    }
   }
 }
 
