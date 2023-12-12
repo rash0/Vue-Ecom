@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex flex-wrap gap-3 justify-content-left pt-1">
-    <div v-for="item in cards" :key="item.id" class="card" :class="{'wide-container' : widthIsWide}">
+  <div class="products-grid pt-1 gap-3" :class="{'ms-3':!filterIsWide}">
+    <div v-for="item in cards" :key="item.id" class="card">
       <img class="card-img-top" :src="useAsset(item.img as string)" alt="Card-image-cap" title="Card-image-cap"
         loading="lazy">
       <div class="overlay">
@@ -24,26 +24,40 @@ const store = useMainStore()
 
 const props = defineProps<{
   cards: Product[],
-  widthIsWide: boolean
+  filterIsWide: boolean
 }>()
+
+const touch = matchMedia('(hover: none)').matches;
 
 </script>
 
 <style lang="scss">
 
+.products-grid {
+    --minChildWidth: 200px;
+    display: grid;
+    grid-template-columns: 
+        repeat(auto-fit,
+        minmax(min(var(--minChildWidth),100%),
+               1fr));
+    flex-grow: 9999;
+    flex-basis: var(--minChildWidth);
+}
 .card {
   transition: 300ms;
   position: relative;
   overflow: hidden;
-  max-width: 300px;
 
   img {
     z-index: 1;
   }
 
   button {
-    width: 140px;
+    width: 7rem;
     margin-bottom: 10px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 0;
   }
 
   &:hover img {
@@ -51,7 +65,7 @@ const props = defineProps<{
   }
 
   &:hover .overlay {
-    opacity: 0.4;
+    opacity: 0.8;
   }
 
   .overlay {
@@ -62,7 +76,6 @@ const props = defineProps<{
     align-items: center;
     width: 100%;
     height: 70%;
-    background-color: #232b34;
     opacity: 0;
     z-index: 50;
     transition: all 0.3s ease-in;
@@ -75,7 +88,11 @@ const props = defineProps<{
   }
 }
 
-.wide-container {
-  max-width: 600px;
+@media (hover: none){
+    /* touch stuff goes here */
+    .overlay {
+      opacity: 0.6 !important;
+      background-color: rgba(0, 0, 0, 0) !important; /* Adjust the alpha value for transparency */
+    }
 }
 </style>
