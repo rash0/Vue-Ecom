@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { Product } from '../types'
+import type { Product } from '../types'
 
 defineProps<{
   details: Product

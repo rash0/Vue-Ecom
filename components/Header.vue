@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navbar-container">
     <nav class="navbar">
       <HeaderMobileMenu />
       <div class="navbar-group">
@@ -29,6 +29,13 @@ const cartState = () => cart.value = !cart.value;
 
 <style lang="scss">
 nav {
+  z-index: 100;
+}
+
+.navbar-container {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
   z-index: 100;
 }
 

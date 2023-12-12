@@ -7,12 +7,12 @@
         <h6>${{ item.price }}</h6>
     </div>
     <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
-        <span class="remove-btn" style="cursor: pointer;" @click="store.outCart(item.id!)">remove</span>
+        <button type="button" class="btn-close btn-close-white" @click="store.outCart(item.id!)"></button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { Product } from '../types';
+import type { Product } from '../types';
 
 const store = useMainStore()
 
