@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { State } from '@/components/types'
+import type { State } from '@/components/types'
 
 export const useMainStore = defineStore("main", {
   state: (): State => ({
@@ -11,7 +11,7 @@ export const useMainStore = defineStore("main", {
         img: "1.jpg",
         title: "Cabriole",
         price: 156,
-        color: "yellow",
+        color: "white",
         type: "sofa",
       },
       {
@@ -27,7 +27,7 @@ export const useMainStore = defineStore("main", {
         img: "3.jpg",
         title: "Arm Chair",
         price: 362,
-        color: "yellow",
+        color: "blue",
         type: "chair",
       },
       {
@@ -35,7 +35,7 @@ export const useMainStore = defineStore("main", {
         img: "4.jpg",
         title: "Wing Chair",
         price: 505,
-        color: "red",
+        color: "silver",
         type: "chair",
       },
       {
@@ -43,7 +43,7 @@ export const useMainStore = defineStore("main", {
         img: "5.jpg",
         title: "Camel Back",
         price: 243,
-        color: "white",
+        color: "silver",
         type: "sofa",
       },
       {
@@ -51,8 +51,8 @@ export const useMainStore = defineStore("main", {
         img: "6.jpg",
         title: "Stool",
         price: 44,
-        color: "white",
-        type: "chair",
+        color: "silver",
+        type: "sofa",
       },
       {
         id: 6,
@@ -65,18 +65,18 @@ export const useMainStore = defineStore("main", {
       {
         id: 7,
         img: "8.jpg",
-        title: "C-table",
+        title: "Square chair",
         price: 432,
-        color: "red",
-        type: "table",
+        color: "blue",
+        type: "chair",
       },
       {
         id: 8,
         img: "9.jpg",
-        title: "Coffee Table",
-        price: 390,
-        color: "white",
-        type: "table",
+        title: "Cone lamp",
+        price: 90,
+        color: "silver",
+        type: "lamp",
       },
       {
         id: 9,
@@ -89,18 +89,18 @@ export const useMainStore = defineStore("main", {
       {
         id: 10,
         img: "11.jpg",
-        title: "Garden Chair",
-        price: 44,
-        color: "white",
-        type: "chair",
+        title: "A - Lamp",
+        price: 155,
+        color: "silver",
+        type: "lamp",
       },
       {
         id: 11,
         img: "12.jpg",
         title: "Novelty",
         price: 156,
-        color: "red",
-        type: "lamp",
+        color: "blue",
+        type: "chair",
       },
       {
         id: 12,
@@ -108,14 +108,14 @@ export const useMainStore = defineStore("main", {
         title: "Lava",
         price: 756,
         color: "blue",
-        type: "lamp",
+        type: "sofa",
       },
       {
         id: 13,
         img: "14.jpg",
         title: "Deck Chair",
         price: 756,
-        color: "white",
+        color: "silver",
         type: "chair",
       },
       {
