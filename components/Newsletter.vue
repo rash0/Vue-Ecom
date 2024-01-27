@@ -1,37 +1,31 @@
 <template>
   <section class="newsletter-area">
-    <div class="container">
-      <div class="row justify-content-between">
-
-        <!-- Newsletter Text -->
-        <div class="col-12 col-lg-6">
-          <div class="newsletter-text">
-            <h2>Join our Newsletter</h2>
-            <p>Nulla ac convallis lorem, eget euismod nisl. bibendum nec.</p>
-          </div>
+    <div class="row grid grid-cols-1 grid-cols-2 mx-4">
+      <!-- Newsletter Text -->
+      <div class="col">
+        <div class="newsletter-text">
+          <h2>Join our Newsletter</h2>
+          <p>Nulla ac convallis lorem, eget euismod nisl. bibendum nec.</p>
         </div>
+      </div>
 
-        <!-- Newsletter Form -->
-        <div class="col-12 col-lg-4">
-          <div class="newsletter-form">
-            <form>
-              <input class="nl-email" placeholder="Your E-mail">
-              <button class="input-button" @click.prevent="submit">Submit</button>
-            </form>
-          </div>
+      <!-- Newsletter Form -->
+      <div class="col">
+        <div class="newsletter-form">
+          <form>
+            <input class="nl-email" placeholder="Your E-mail" />
+            <button class="input-button" @click.prevent="submit">Submit</button>
+          </form>
         </div>
-
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-
 function submit(): void {
-  return alert('Thank you for subscribing')
+  return alert("Thank you for subscribing!");
 }
-
 </script>
 
 <style scoped lang="scss">
@@ -89,7 +83,8 @@ function submit(): void {
       top: 0;
       z-index: 10;
       border: none;
-      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 16px 70px 0 rgba(0, 0, 0, 0.69);
+      box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1),
+        0 16px 70px 0 rgba(0, 0, 0, 0.69);
 
       &:hover,
       &:focus {

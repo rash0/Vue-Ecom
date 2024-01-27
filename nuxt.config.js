@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
   },
-  css: ["~/assets/styles/main.scss"],
+  css: ["~/assets/css/main.css"],
   render: {
     csp: {
       hashAlgorithm: "sha256",
@@ -37,6 +37,12 @@ export default defineNuxtConfig({
         "script-src": ["'self'", "*.vercel-insights.com"],
       },
       addMeta: true,
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
 });
