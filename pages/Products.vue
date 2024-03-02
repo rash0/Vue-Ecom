@@ -1,7 +1,7 @@
 <template>
     <div>
         <ProductsBreadCrumbs />
-        <ProductsGrid />
+<!--        <ProductsGrid />-->
     </div>
 </template>
 

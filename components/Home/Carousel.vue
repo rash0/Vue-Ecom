@@ -1,26 +1,20 @@
 <template>
-  <section class="carousel">
-    <div id="heroControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroControls" data-bs-slide-to="0" class="active" aria-current="true"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#heroControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#heroControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="img-fluid" src="~/assets/jum1.jpg" alt="First-slide" title="First-slide">
-        </div>
-        <div class="carousel-item">
-          <img class="img-fluid" src="~/assets/jum2.jpg" alt="Second-slide" title="Second-slide">
-        </div>
-        <div class="carousel-item">
-          <img class="img-fluid" src="~/assets/jum3.jpg" alt="Third-slide" title="Third-slide">
-        </div>
-      </div>
-    </div>
-  </section>
+  <UCarousel v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }" class="rounded-lg overflow-hidden" indicators>
+    <img :src="item" class="w-full" draggable="false">
+  </UCarousel>
 </template>
+
+<script setup lang="ts">
+// ~/assets/jum1.jpg
+const items = [
+  'https://picsum.photos/1920/1080?random=1',
+  'https://picsum.photos/1920/1080?random=2',
+  'https://picsum.photos/1920/1080?random=3',
+  'https://picsum.photos/1920/1080?random=4',
+  'https://picsum.photos/1920/1080?random=5',
+  'https://picsum.photos/1920/1080?random=6'
+]
+</script>
 
 <style scoped>
 .img-fluid {
