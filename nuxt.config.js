@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["store"],
   },
-  modules: ["@nuxt/devtools", "@pinia/nuxt"],
+  modules: ["@nuxt/ui", "@nuxt/devtools", "@pinia/nuxt"],
   extends: ["nuxt-seo-kit"],
   routeRules: {
     "/**": { robots: "index, follow" },
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   pinia: {
     autoImports: ["defineStore", ["defineStore", "definePiniaStore"]],
   },
-  css: ["~/assets/styles/main.scss"],
+  css: ["~/assets/css/main.css"],
   render: {
     csp: {
       hashAlgorithm: "sha256",
@@ -39,4 +39,15 @@ export default defineNuxtConfig({
       addMeta: true,
     },
   },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  nitro: {
+    devServer: {
+      watch: ['./src']
+    }
+  }
 });

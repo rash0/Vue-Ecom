@@ -1,52 +1,34 @@
 <template>
-  <div>
-    <nav class="navbar">
-      <HeaderMobileMenu />
-      <div class="navbar-group">
+  <div class="border-2 border-rose-600">
+    <nav class="flex justify-between md:mx-16">
+      <!-- <HeaderMobileMenu /> -->
+      <div class="flex items-center border-2 border-rose-600">
         <HeaderLogo />
         <HeaderNavLinks />
       </div>
-      <div class="navbar-group">
+      <div class="flex items-center">
         <HeaderSearchBar />
         <HeaderProfile />
         <HeaderCartButton @open="cartState" />
       </div>
     </nav>
     <!--User Modal-->
-    <HeaderUserModal />
+    <!-- <HeaderUserModal /> -->
     <!--Cart Component-->
     <HeaderCart :is-open="cart" @closeCart="cartState" />
   </div>
 </template>
 
 <script setup>
+const cart = ref(false);
 
-const cart = ref(false)
-
-const cartState = () => cart.value = !cart.value;
-
+const cartState = () => (cart.value = !cart.value);
 </script>
 
-<style lang="scss">
+<style>
 nav {
   z-index: 100;
 }
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #DCDCDC;
-  background-color: #F8F8F8;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.navbar-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .navbar-item {
   a {
     margin-left: 13px;
@@ -56,10 +38,9 @@ nav {
   }
 
   .bc {
-
     a:hover,
     a:active {
-      color: #FFD700;
+      color: #ffd700;
     }
   }
 }
@@ -71,7 +52,6 @@ nav {
   font-size: 31px;
   color: #000;
 }
-
 
 .btn-sm {
   border-radius: 0;
@@ -87,9 +67,5 @@ form .btn-xl.btn-success.mt-3 {
   outline: none;
   cursor: pointer;
   box-shadow: 0 26px 38px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.user {
-  cursor: pointer
 }
 </style>
